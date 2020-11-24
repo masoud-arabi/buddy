@@ -13,27 +13,27 @@ Contact.destroy_all if Rails.env.development?
 10.times do
   Contact.create(
     first_name: Faker::Name.first_name
-    last_name = Faker::Name.first_name
-    job_title = Faker::Job.title
-    job_description = { field: Faker::Job.field, position: Faker::Job.position, type: Faker::Job.employment_type }
-    contact_email = Faker::Internet.email(name: 'Nancy')
-    start_date
-    end_date
-    company_id
-    user_id
+    last_name: Faker::Name.first_name
+    job_title: Faker::Job.title
+    job_description: { field: Faker::Job.field, position: Faker::Job.position, type: Faker::Job.employment_type }
+    contact_email: Faker::Internet.email(name: first_name)
+    start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25')
+    end_date: Faker::Date.between(from: '2018-09-25', to: Date.today) || Date.today
+    company_id: rand(1..10)
+    user_id: rand(1..10)
   )
 end
 
-Company.create()
-name
-industry
-address
+# Company.create()
+# name
+# industry
+# address
 
-Job.create()
-title
-description
-date_created
-skills
-company_id
+# Job.create()
+# title
+# description
+# date_created
+# skills
+# company_id
 
 
