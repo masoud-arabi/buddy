@@ -1,4 +1,4 @@
 class Company < ApplicationRecord
-  has_many :contacts
-  has_many :jobs
+  has_many :contacts, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 end

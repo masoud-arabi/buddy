@@ -8,12 +8,12 @@
 require 'faker'
 
 
-puts "Destroying companies"
-Company.destroy_all if Rails.env.development?
 puts "Destroying jobs"
-Job.destroy_all if Rails.env.development?
+Job.destroy_all
 puts "Destroying contacts"
-Contact.destroy_all if Rails.env.development?
+Contact.destroy_all
+puts "Destroying companies"
+Company.destroy_all
 
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
@@ -291,7 +291,7 @@ company: element_ai
 )
 
 
-project_manager_ubosoft = = Job.create!(
+project_manager_ubosoft = Job.create!(
 title: "Project Manager",
 description: "<p>We are looking for a Project Manager to be responsible for
 handling our company's ongoing projects. You will be working closely with your
@@ -338,24 +338,18 @@ company: ubisoft
 )
 
 
-ubisoft = Contact.create!(
-name: "Ubisoft Montréal",
-industry: "Video game",
-address: "5505 Boulevard Saint-Laurent, Montréal"
-)
-
 30.times do
-  contact = Restaurant.new(
-    first_name: Faker::Name.first_name
-    last_name: Faker::Name.first_name
-    job_title: rand(["Product Owner", "Front-end developer", "Back-end developer",
+  contact = Contact.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    job_title: ["Product Owner", "Front-end developer", "Back-end developer",
     "Web Designer", "Project Manager", "Data Analyst", "Full-stack developer",
-    "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"])
-    contact_email: Faker::Internet.email(name: first_name)
-    start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25')
-    end_date: rand(Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today)
-    company: rand([ubisoft, element_ai, metrio, alithya, ssence, absolunet])
-    user_id: rand(rand(1..10), null)
+    "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"].sample,
+    contact_email: Faker::Internet.email,
+    start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25'),
+    end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
+    company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
+    user: [User.all.sample, nil].sample
   )
   contact.save!
 end
