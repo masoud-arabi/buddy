@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-require 'open-uri'
-require 'nokogiri'
+
 
 puts "Destroying companies"
 Company.destroy_all if Rails.env.development?
@@ -52,26 +51,13 @@ address: "4398 Boulevard Saint-Laurent, Montréal"
 )
 
 
-position = 'product-owner'
-url = "https://www.betterteam.com/#{position}-job-description"
-
-html_file = open(url).read
-html_doc = Nokogiri::HTML(html_file)
-
-test = html_doc.search('#copyTarget > p:nth-child(2)')
-binding.pry
-
-
-
-
-
 front_end_developper_absolunet = Job.create!(
 title: "Front-end developer",
-description: "We are looking for a proactive programmer with a keen eye for
+description: "<p>We are looking for a proactive programmer with a keen eye for
 design for the position of Front End Developer. You will be responsible for
 ensuring the alignment of web design and user experience requirements, optimizing
 web pages for maximum efficiency and maintaining brand consistency across
-all web pages, among other duties.
+all web pages, among other duties.</p>
 <div class='responsibilities'>Responsibility :
 <ul>
 <li>Determining the structure and design of web pages.</li>
@@ -107,17 +93,18 @@ skills: "<ul>
 <li>jQuery</li>
 <li>SEO</li>
 </ul>",
+years_experience: rand(1..5),
 company: absolunet
 )
 
 back_end_developper_ssense = Job.create!(
 title: "Back-end developer",
-description: "We are looking for an analytical, results-driven Back-end Developer
+description: "<p>We are looking for an analytical, results-driven Back-end Developer
 who will work with team members to troubleshoot and improve current back-end applications
 and processes. The Back-end Developer will use his or her understanding of programming languages
 and tools to analyze current codes and industry developments, formulate more efficient processes,
 solve problems, and create a more seamless experience for users. You should have excellent
-communication, computer, and project management skills.
+communication, computer, and project management skills.</p>
 <div class='responsibilities'>Responsibility :
 <ul>
 <li>Compile and analyze data, processes, and codes to troubleshoot problems and
@@ -153,30 +140,227 @@ skills: "<ul>
 <li>Ruby</li>
 <li>C++</li>
 </ul>",
+years_experience: rand(1..5),
 company: ssense
 )
 
-# product_owner_alithya
+product_owner_alithya = Job.create!(
+title: "Product Owner",
+description: "<p>We are looking for a dedicated Product Director to be the point
+person in our scrum team. The Product Owner will be responsible for defining
+the product vision and managing the product development process. Other
+responsibilities include supporting the scrum team, managing backlog items, and
+optimizing the value of the product(s). You should also be able to lead the product
+development team toward achieving the vision and mission of the organization.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Strategizing and presenting ideas to stakeholders.</li>
+<li>Defining product features according to customer needs.</li>
+<li>Leading the development process.</li>
+<li>Acting as the main point of contact between teams and stakeholders.</li>
+<li>Managing and prioritizing product backlog items.</li>
+<li>Assisting the scrum/product development team to meet the objectives of each sprint.</li>
+<li>Optimizing web pages for maximum speed and scalability.</li>
+<li>Adjusting and improving each iteration of the product before release.</li>
+<li>Identifying areas of improvement.</li>
+<li>Keeping customers and stakeholders informed of the status of the product.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>BA in Computer Science, Information Systems, or related field.</li>
+<li>Previous working experience as a Product Owner.</li>
+<li>In-depth knowledge of Agile methodologies.</li>
+<li>Strong analytical and problem-solving skills.</li>
+<li>Strong communication skills, written and verbal.</li>
+<li>Strong presentation skills.</li>
+<li>Ability to multi-task and work under pressure.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+skills: "<ul>
+<li>Scrum Management</li>
+<li>Analyse</li>
+<li>Logic & organization</li>
+<li>Project Management</li>
+</ul>",
+years_experience: rand(1..5),
+company: alithya
+)
+
+web_designer_metrio = Job.create!(
+title: "Web Designer",
+description: "<p>We are looking for a Web Designer who will be responsible for
+creating great websites for our clients. Primary duties include conceptualizing
+and implementing creative ideas for client websites, as well as creating visual
+elements that are in line with our clients' branding. You will be working closely with
+our web development team to ensure a proper and hassle-free implementation.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Conceptualizing creative ideas with clients.</li>
+<li>Testing and improving the design of the website.</li>
+<li>Maintaining the appearance of websites by enforcing content standards.</li>
+<li>Designing visual imagery for websites and ensuring that they are in line with
+branding for clients.</li>
+<li>Working with different content management systems.</li>
+<li>Communicating design ideas using user flows, process flows, site maps and wireframes.</li>
+<li>Incorporating functionalities and features into websites.</li>
+<li>Designing sample pages including colors and fonts.</li>
+<li>Identifying areas of improvement.</li>
+<li>Preparing design plans and presenting the website structure.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>A relevant diploma in related field.</li>
+<li>Proficiency in graphic design software including Adobe Photoshop, Adobe Illustrator,
+and other visual design tools.</li>
+<li>Proficiency in front-end development web programming languages such as HTML and
+CSS, JQuery, and JavaScript.</li>
+<li>Good understanding of content management systems.</li>
+<li>Good understanding of search engine optimization principles.</li>
+<li>Proficient understanding of cross-browser compatibility issues.</li>
+<li>Excellent visual design skills.</li>
+<li>Up-to-date experience with international web protocols, standards,
+and technologies.</li>
+<li>Creative and open to new ideas.</li>
+<li>Adaptable and willing to learn new techniques.</li>
+<li>Excellent communication skills.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+skills: "<ul>
+<li>Adobe Photoshop</li>
+<li>Adobe Illustrator</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Figma</li>
+</ul>",
+years_experience: rand(1..5),
+company: metrio
+)
+
+
+data_analyst_element_ai = Job.create!(
+title: "Data Analyst",
+description: "<p>We are looking to hire a Data Analyst to join our data team.
+You will take responsibility for managing our master data set, developing reports,
+and troubleshooting data issues. To do well in this role you need a very fine eye
+for detail, experience as a data analyst, and deep understanding of the popular
+data analysis tools and databases.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Managing master data, including creation, updates, and deletion.</li>
+<li>Managing users and user roles.</li>
+<li>Provide quality assurance of imported data, working with quality assurance
+analyst if necessary.</li>
+<li>Commissioning and decommissioning of data sets.</li>
+<li>Processing confidential data and information according to guidelines.</li>
+<li>Helping develop reports and analysis.</li>
+<li>Managing and designing the reporting environment, including data sources,
+security, and metadata.</li>
+<li>Supporting the data warehouse in identifying and revising reporting requirements.</li>
+<li>Supporting initiatives for data integrity and normalization.</li>
+<li>Assessing tests and implementing new or upgraded software and assisting with
+strategic decisions on new systems.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>Bachelor’s degree from an accredited university or college in computer science.</li>
+<li>Work experience as a data analyst or in related field.</li>
+<li>Ability to work with stakeholders to assess potential risks.</li>
+<li>Ability to analyze existing tools and databases and provide software solution
+recommendations.</li>
+<li>Ability to translate business requirements into non-technical, lay terms.</li>
+<li>High-level experience in methodologies and processes for managing large scale databases.</li>
+<li>Demonstrated experience in handling large data sets and relational databases.</li>
+<li>Understanding of addressing and metadata standards.</li>
+<li>High-level written and verbal communication skills.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+skills: "<ul>
+<li>Big Data</li>
+<li>SQL</li>
+<li>Database</li>
+</ul>",
+years_experience: rand(1..5),
+company: element_ai
+)
+
+
+project_manager_ubosoft = = Job.create!(
+title: "Project Manager",
+description: "<p>We are looking for a Project Manager to be responsible for
+handling our company's ongoing projects. You will be working closely with your
+team members to ensure that all project requirements, deadlines, and schedules
+are on track. Responsibilities include submitting project deliverables, preparing
+status reports, and establishing effective project communication plans as well as
+the proper execution of said plans.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Coordinating with cross discipline team members to make sure that all parties
+are on track with project requirements, deadlines, and schedules.</li>
+<li>Meeting with project team members to identify and resolve issues.</li>
+<li>Submitting project deliverables and ensuring that they adhere to quality standards.</li>
+<li>Preparing status reports by gathering, analyzing and summarizing relevant information.</li>
+<li>Establishing effective project communication plans and ensuring their execution.</li>
+<li>Helping develop reports and analysis.</li>
+<li>Facilitating change requests to ensure that all parties are informed of the impacts on schedule and budget.</li>
+<li>Identifying and developing new opportunities with clients.</li>
+<li>Obtaining customer acceptance of project deliverables.</li>
+<li>ERP project oversight.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>A bachelor’s degree or master degree in a related field.</li>
+<li>Project Management Professional (PMP) certification is a plus.</li>
+<li>Proven experience in project management.</li>
+<li>Ability to lead project teams of various sizes and see them through to completion.</li>
+<li>Strong understanding of formal project management methodologies</li>
+<li>High-level experience in methodologies and processes for managing large scale databases.</li>
+<li>Experience as a construction project manager, IT project manager or ERP project manager.</li>
+<li>Able to complete projects in a timely manner.</li>
+<li>Budget management experience.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+skills: "<ul>
+<li>Project Management</li>
+<li>Communication</li>
+<li>Summarize informations</li>
+</ul>",
+years_experience: rand(1..5),
+company: ubisoft
+)
+
+
+ubisoft = Contact.create!(
+name: "Ubisoft Montréal",
+industry: "Video game",
+address: "5505 Boulevard Saint-Laurent, Montréal"
+)
+
+30.times do
+  contact = Restaurant.new(
+    first_name: Faker::Name.first_name
+    last_name: Faker::Name.first_name
+    job_title: rand(["Product Owner", "Front-end developer", "Back-end developer",
+    "Web Designer", "Project Manager", "Data Analyst", "Full-stack developer",
+    "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"])
+    contact_email: Faker::Internet.email(name: first_name)
+    start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25')
+    end_date: rand(Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today)
+    company: rand([ubisoft, element_ai, metrio, alithya, ssence, absolunet])
+    user_id: rand(rand(1..10), null)
+  )
+  contact.save!
+end
 
 
 
-
-
-
-
-
-  # Contact.create(
-  #   first_name: Faker::Name.first_name
-  #   last_name: Faker::Name.first_name
-  #   job_title: Faker::Job.title
-  #   job_description: "field: #{}Faker::Job.field, position: Faker::Job.position, type: Faker::Job.employment_type"
-  #   contact_email: Faker::Internet.email(name: first_name)
-  #   start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25')
-  #   end_date: Faker::Date.between(from: '2018-09-25', to: Date.today) || Date.today
-  #   company_id: rand(1..10) or
-  #   company: ubisoft
-  #   user_id:
-  # )
 
 
 
