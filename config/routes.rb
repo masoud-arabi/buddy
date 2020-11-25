@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resource :profiles, only: [:edit, :update]
   resources :users, only: :show do
-    resources :messages, only: [ :index, :create ]
+    resources :messages, only: [ :create ]
   end
   resources :contacts, only: :index
   get '/ideas', to: 'ideas#map'
-  resources :chat, only: :index
+  resources :conversations, only: [:index, :show]
 
 end

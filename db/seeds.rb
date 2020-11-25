@@ -15,6 +15,8 @@ Contact.destroy_all
 puts "Destroying companies"
 Company.destroy_all
 
+User.destroy_all
+
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
 industry: "Video game",
@@ -354,8 +356,26 @@ company: ubisoft
   contact.save!
 end
 
+user = User.create!(
+  email: "masoud@gmail.com",
+  password: "123456789"
+)
 
+user_two = User.create!(
+  email: "martin@gmail.com",
+  password: "123456789"
+)
 
+conversation = Conversation.create!(
+  sender: user,
+  receiver: user_two
+)
+
+message = Message.create!(
+  user: user,
+  conversation: conversation,
+  content: "jjjjj"
+)
 
 
 
