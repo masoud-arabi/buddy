@@ -14,6 +14,8 @@ puts "Destroying contacts"
 Contact.destroy_all
 puts "Destroying companies"
 Company.destroy_all
+puts "Destroying priorities"
+Priority.destroy_all
 
 User.destroy_all
 
@@ -356,6 +358,7 @@ company: ubisoft
   contact.save!
 end
 
+<<<<<<< HEAD
 user = User.create!(
   email: "masoud@gmail.com",
   password: "123456789"
@@ -376,6 +379,25 @@ message = Message.create!(
   conversation: conversation,
   content: "jjjjj"
 )
+=======
+user_id_1_priority_1 = Priority.create!(
+  user_id: 1,
+  job_search: "Product Owner",
+  position: 1
+  )
+
+user_id_1_priority_2 = Priority.create!(
+  user_id: 1,
+  job_search: "Front-end developer",
+  position: 2
+  )
+
+user_id_1_priority_3 = Priority.create!(
+  user_id: 1,
+  job_search: "Back-end developer",
+  position: 3
+  )
+>>>>>>> 9feafa16790f2f073ffc818e04517b54be4b48c9
 
 
 

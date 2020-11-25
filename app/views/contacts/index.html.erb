@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="contact">
     <h1>  All Your Contacts </h1>
@@ -10,4 +11,24 @@
       <h5>end: <%= contact.end_date%></h5></br></br>
     <% end %>
   </div>
+=======
+
+<div class="contact">
+  <h1>  All Your Contacts </h1>
+  <% @contacts.each do |contact| %>
+    <h1>name: <%= contact.first_name%> <%= contact.last_name%></h1>
+    <h3>job title: <%= contact.job_title%></h3>
+    <h3>company name: <%= contact.company.name%></h3>
+    <% if contact.is_a_user? %>
+      <%= link_to "Send a message", profile_messages_path(contact) %>
+    <% else %>
+      <%= link_to "Send a mail", profile_messages_path(contact) %>
+    <% end %>
+    <% contact.company.jobs.each do |job| %>
+    <ul>
+      <%= job.title %>
+    </ul>
+    <% end %>
+  <% end %>
+>>>>>>> 9feafa16790f2f073ffc818e04517b54be4b48c9
 </div>
