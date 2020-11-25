@@ -12,7 +12,8 @@ puts "Destroying companies"
 Company.destroy_all if Rails.env.development?
 puts "Destroying jobs"
 Job.destroy_all if Rails.env.development?
-
+puts "Destroying contacts"
+Contact.destroy_all if Rails.env.development?
 
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
