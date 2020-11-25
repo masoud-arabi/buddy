@@ -5,5 +5,10 @@
     <h1>name: <%= contact.first_name%> <%= contact.last_name%></h1>
     <h3>job title: <%= contact.job_title%></h3>
     <h3>company name: <%= contact.company.name%></h3>
+    <% if contact.is_a_user? %>
+      <%= link_to "Send a message", profile_messages_path(contact) %>
+    <% else %>
+      <%= link_to "Send a mail", profile_messages_path(contact) %>
+    <% end %>
   <% end %>
 </div>

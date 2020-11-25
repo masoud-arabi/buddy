@@ -14,6 +14,8 @@ puts "Destroying contacts"
 Contact.destroy_all
 puts "Destroying companies"
 Company.destroy_all
+puts "Destroying priorities"
+Priority.destroy_all
 
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
@@ -354,8 +356,23 @@ company: ubisoft
   contact.save!
 end
 
+user_id_1_priority_1 = Priority.create!(
+  user_id: 1,
+  job_search: "Product Owner",
+  position: 1
+  )
 
+user_id_1_priority_2 = Priority.create!(
+  user_id: 1,
+  job_search: "Front-end developer",
+  position: 2
+  )
 
+user_id_1_priority_3 = Priority.create!(
+  user_id: 1,
+  job_search: "Back-end developer",
+  position: 3
+  )
 
 
 

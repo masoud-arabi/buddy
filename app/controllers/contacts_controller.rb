@@ -4,8 +4,12 @@ class ContactsController < ApplicationController
     user = current_user
     @contacts = []
     all_contacts.each do |contact|
-      if contact.user_id != nil
-        @contacts << contact
+      contact.company.jobs.each do |job|
+        user.priorities.each do |priority|
+          if priority.job_search == job.title
+            @contacts << contact
+          end
+        end
       end
     end
     @contacts
