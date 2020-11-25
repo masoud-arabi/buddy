@@ -1,11 +1,17 @@
 <h1>Your profile</h1>
 
-<h2>Full name</h2>
+<h3>Full name</h3>
 <%= @user.first_name %> <%= @user.last_name %>
+<h3>Email</h3>
 <%= @user.email %>
+<h3>Phone</h3>
 <%= @user.phone_number %>
+<h3>Address</h3>
 <%= @user.city_address %> <%= @user.appartement_address %>
-<%=  %>
+<h3>background</h3>
+<%= @user.background %>
+<h3>About me:</h3>
+<%= @user.description %>
 
 
 
