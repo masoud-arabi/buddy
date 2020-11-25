@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :sender_users, class_name: 'Message', foreign_key: 'sender_user_id'
   has_many :receiver_users, class_name: 'Message', foreign_key: 'receiver_user_id'
   has_many :connections
+  has_many :priorities
 end
