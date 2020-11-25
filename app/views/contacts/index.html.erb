@@ -10,5 +10,10 @@
     <% else %>
       <%= link_to "Send a mail", profile_messages_path(contact) %>
     <% end %>
+    <% contact.company.jobs.each do |job| %>
+    <ul>
+      <%= job.title %>
+    </ul>
+    <% end %>
   <% end %>
 </div>
