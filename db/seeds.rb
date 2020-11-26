@@ -29,7 +29,6 @@ puts "creating users"
 user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
-  photo: "https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg"
 )
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
@@ -390,7 +389,7 @@ puts "creating contacts"
     start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25'),
     end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
-    user_id: [id, nil].sample
+    user_id: [id, nil].sample,
   )
   contact.save!
   number = @array_contact.index(id).to_i
