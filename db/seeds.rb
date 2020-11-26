@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
 
 puts "Destroying contacts"
 Contact.destroy_all
@@ -22,9 +23,13 @@ Priority.destroy_all
 
 puts "creating users"
 
+
+
+
 user_1 = User.create!(
   email: "alexp.coeff@gmail.com",
   password: "123456"
+  photo: "https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg"
 )
 
 user_2 = User.create!(
