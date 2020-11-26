@@ -1,5 +1,13 @@
 <div class="header">
-  <%= cl_image_tag @user.photo.key, class: "buddy-avatar" %>
+
+    <%= link_to "#" do %>
+      <% if current_user.present? && current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "buddy-avatar" %>
+      <% else %>
+        <%= image_tag "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png", class: "buddy-avatar" %>
+      <% end %>
+  <% end %>
+
   <img src="https://res.cloudinary.com/maximelpy/image/upload/v1606393471/buddy_logo_scetxt.png" alt="" class="buddy-logo">
 <!--   <img src="https://avatars3.githubusercontent.com/u/71738109?v=4" alt="#" class="buddy-avatar">
  --></div>
