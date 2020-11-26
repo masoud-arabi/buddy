@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
 
 puts "Destroying contacts"
 Contact.destroy_all
@@ -22,15 +23,25 @@ Priority.destroy_all
 
 puts "creating users"
 
-user_1 = User.create!(
-  email: "alexp.coeff@gmail.com",
-  password: "123456"
-)
 
-user_2 = User.create!(
-  email: "alexandre.coeffet@hec.ca",
-  password: "123456"
+
+
+user_1 = User.new(
+  email: "alexp.coeff@gmail.com",
+  password: "123456",
+  photo: "https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+user_1.save!
+
+user_2 = User.new(
+  email: "alexandre.coeffet@hec.ca",
+  password: "123456",
+)
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+user_2.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+user_2.save!
 
 10.times do
   User.create!(

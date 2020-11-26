@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :connections, dependent: :destroy
   has_many :priorities, dependent: :destroy
   has_many :contacts
-
+  has_one_attached :photo
+  
   def match_priority_to_job(job_title)
     self.priorities.each do |priority|
       if job_title == priority.job_search
@@ -18,4 +19,5 @@ class User < ApplicationRecord
     end
     return false
   end
+
 end
