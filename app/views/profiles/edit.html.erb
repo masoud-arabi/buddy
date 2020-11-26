@@ -2,6 +2,7 @@
 <h1>Update your profile</h1>
 
 <%= simple_form_for(current_user, url: profiles_path) do |f| %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :description %>
