@@ -1,11 +1,9 @@
 class Contact < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :company
-  has_many :connections
+  has_many :connections, dependent: :destroy
 
   def is_a_user?
-    if self.user_id != nil
-      return true
-    end
+    !self.user_id.nil?
   end
 end

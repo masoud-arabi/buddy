@@ -1,0 +1,19 @@
+<div class="connection">
+  <h1>  All Your Buddies </h1>
+  <% @connections.each do |connection| %>
+    <h1>name: <%= connection.contact.first_name%> <%= connection.contact.last_name%></h1>
+    <h3>job title: <%= connection.contact.job_title%></h3>
+    <h3>company name: <%= connection.contact.company.name%></h3>
+    <%= current_user.id %>
+    <% if connection.contact.is_a_user? %>
+      <%= link_to "Send a message", profile_messages_path(connection) %>
+    <% else %>
+      <%= link_to "Send a mail", profile_messages_path(connection) %>
+    <% end %>
+    <% connection.contact.company.jobs.each do |job| %>
+    <ul>
+      <%= job.title %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
