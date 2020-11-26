@@ -1,10 +1,15 @@
 <div class="connection">
   <h1>  All Your Buddies </h1>
   <% @connections.each do |connection| %>
-    <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="buddy_avatar">
-    <h1><%= connection.contact.first_name%> <%= connection.contact.last_name%></h1>
-    <h3><%= connection.contact.job_title%></h3>
-    <h3><%= connection.contact.company.name%></h3>
+    <div class="card">
+        <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="buddy_avatar">
+      <div class="card-connection">
+        <h1><%= connection.contact.first_name%> <%= connection.contact.last_name%></h1>
+        <h2><%= connection.contact.job_title%></h2>
+        <h2><%= connection.contact.company.name%></h2>
+      </div>
+    </div>
+
     <%= current_user.id %>
     <% if connection.contact.is_a_user? %>
       <%= link_to "Send a message", profile_messages_path(connection) %>
