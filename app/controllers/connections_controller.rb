@@ -7,10 +7,10 @@ class ConnectionsController < ApplicationController
     user = current_user
     @connections = []
     user.connections.each do |connection|
-      connection.contact.company.jobs.each do |job|
-        user.priorities.each do |priority|
+      user.priorities.each do |priority|
+        connection.contact.company.jobs.each do |job|
           if match_priorities_jobs?(priority.job_search, job.title)
-            @connections << connection
+            @connections << connection.contact
           end
         end
       end
