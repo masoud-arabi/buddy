@@ -1,25 +1,37 @@
-<div class="connection">
-  <h1>  All Your Buddies </h1>
-  <% @connections.each do |connection| %>
-    <div class="card">
-        <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="buddy_avatar">
-      <div class="card-connection">
-        <h1><%= connection.contact.first_name%> <%= connection.contact.last_name%></h1>
-        <h2><%= connection.contact.job_title%></h2>
-        <h2><%= connection.contact.company.name%></h2>
-      </div>
-    </div>
 
-    <%= current_user.id %>
-    <% if connection.contact.is_a_user? %>
-      <%= link_to "Send a message", profile_messages_path(connection) %>
-    <% else %>
-      <%= link_to "Send a mail", profile_messages_path(connection) %>
-    <% end %>
-    <% connection.contact.company.jobs.each do |job| %>
-    <ul>
-      <%= job.title %>
-    </ul>
+<h1>  All Your Buddies </h1>
+<div class="connections">
+  <% seen_jobs = [] %>
+  <% @connections.each_with_index do |connection, index| %>
+    <% connection.company.jobs.each do |job| %>
+      <% next if seen_jobs.include?(job.id) %>
+        <% contact = @connections[index] %>
+        <% unless seen_jobs.include?(job.id) || current_user.match_priority_to_job(job.title) == false %>
+
+          <div class="card">
+            <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="buddy_avatar">
+              <div class="card-connection">
+                <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
+                <h3><%= contact&.company&.name%></h3>
+                <h3><%= contact&.first_name %>'s job : <%= contact&.job_title%></h3>
+                <% connection = Connection.find_by(contact: contact) %>
+                <h3><%= connection&.duration_work %></h3>
+              </div>
+          </div>
+
+          <div class="priority_<%= current_user.match_priority_to_job(job.title) %> ">
+            <% if contact&.is_a_user? %>
+              <%= link_to "Send a message", profile_messages_path(connection) %>
+            <% else %>
+              <%= link_to "Send a mail", profile_messages_path(connection) %>
+            <% end %>
+              <ul>
+                <%= job.title %>
+              </ul>
+          </div>
+        <% end %>
+      <% seen_jobs.push(job.id) %>
     <% end %>
   <% end %>
 </div>
+
