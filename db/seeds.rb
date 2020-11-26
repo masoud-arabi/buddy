@@ -7,17 +7,43 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
-puts "Destroying jobs"
-Job.destroy_all
 puts "Destroying contacts"
 Contact.destroy_all
+puts "Destroying connections"
+Connection.destroy_all
+puts "Destroying jobs"
+Job.destroy_all
 puts "Destroying companies"
 Company.destroy_all
+puts "Destroying users"
+User.destroy_all
 puts "Destroying priorities"
 Priority.destroy_all
 
+<<<<<<< HEAD
 User.destroy_all
+=======
+puts "creating users"
+
+user_1 = User.create!(
+  email: "alexp.coeff@gmail.com",
+  password: "123456"
+)
+
+user_2 = User.create!(
+  email: "alexandre.coeffet@hec.ca",
+  password: "123456"
+)
+
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
+  )
+end
+
+puts "creating companies"
+>>>>>>> master
 
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
@@ -55,6 +81,7 @@ industry: "Web Marketing",
 address: "4398 Boulevard Saint-Laurent, Montréal"
 )
 
+puts "creating jobs"
 
 front_end_developper_absolunet = Job.create!(
 title: "Front-end developer",
@@ -341,8 +368,11 @@ years_experience: rand(1..5),
 company: ubisoft
 )
 
+puts "creating contacts"
 
-30.times do
+@array_contact = [*User.first.id..User.last.id]
+50.times do
+  id = @array_contact.sample
   contact = Contact.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -353,11 +383,14 @@ company: ubisoft
     start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25'),
     end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
-    user: [User.all.sample, nil].sample
+    user_id: [id, nil].sample
   )
   contact.save!
+  number = @array_contact.index(id).to_i
+  @array_contact.slice!(number)
 end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 user = User.create!(
   email: "masoud@gmail.com",
@@ -382,22 +415,61 @@ message = Message.create!(
 =======
 user_id_1_priority_1 = Priority.create!(
   user_id: 1,
+=======
+puts "creating connections"
+
+User.all.each do |user|
+  array = []
+  i = rand(0..49)
+  25.times do
+    unless array.include?(i)
+      connection = Connection.new
+      connection.user = user
+      connection.contact = Contact.all[i]
+      connection.save!
+      array << i
+    end
+    i = rand(0..49)
+  end
+end
+
+puts "creating priorities"
+
+Priority.create!(
+  user: user_1,
+>>>>>>> master
   job_search: "Product Owner",
   position: 1
   )
 
-user_id_1_priority_2 = Priority.create!(
-  user_id: 1,
+Priority.create!(
+  user: user_1,
   job_search: "Front-end developer",
   position: 2
   )
 
-user_id_1_priority_3 = Priority.create!(
-  user_id: 1,
+Priority.create!(
+  user: user_1,
   job_search: "Back-end developer",
   position: 3
   )
 >>>>>>> 9feafa16790f2f073ffc818e04517b54be4b48c9
 
+Priority.create!(
+  user: user_2,
+  job_search: "Product Owner",
+  position: 1
+  )
 
+Priority.create!(
+  user: user_2,
+  job_search: "Front-end developer",
+  position: 2
+  )
+
+Priority.create!(
+  user: user_2,
+  job_search: "Back-end developer",
+  position: 3
+  )
 

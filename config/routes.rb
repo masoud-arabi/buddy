@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :profiles, only: :show do
     resources :messages, only: [ :create ]
   end
-  resources :contacts, only: :index
+  resources :connections, only: :index
   get '/ideas', to: 'ideas#map'
   resources :conversations, only: [:index, :show]
 
