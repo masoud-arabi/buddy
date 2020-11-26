@@ -12,11 +12,17 @@ img {
 }
 
 
-.card{
+.card-connection img{
   display: flex;
+  width: 52px;
+  height: 52px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
 }
 
-.card-connection img{
+.card-connection-details img{
   width: 52px;
   height: 52px;
   position: relative;
