@@ -3,11 +3,8 @@
   <% seen_jobs = [] %>
   <% @connections.each_with_index do |connection, index| %>
     <% connection.company.jobs.each do |job| %>
-    <% next if seen_jobs.include?(job.id) %>
-      <% contact = @connections[index] %>
-
-    <% # connection.user.priorities.each do |priority| %>
-
+      <% next if seen_jobs.include?(job.id) %>
+        <% contact = @connections[index] %>
         <% unless seen_jobs.include?(job.id) || current_user.match_priority_to_job(job.title) == false %>
           <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
           <h3><%= contact&.company&.name%></h3>
@@ -25,10 +22,8 @@
               </ul>
           </div>
         <% end %>
-        <% seen_jobs.push(job.id) %>
-      <% end %>
-
+      <% seen_jobs.push(job.id) %>
     <% end %>
-  <% # end %>
+  <% end %>
 </div>
 
