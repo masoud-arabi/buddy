@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
 
 puts "Destroying contacts"
 Contact.destroy_all
@@ -24,15 +25,25 @@ Conversation.destroy_all
 
 puts "creating users"
 
-user_1 = User.create!(
-  email: "alexp.coeff@gmail.com",
-  password: "123456"
-)
 
-user_2 = User.create!(
-  email: "alexandre.coeffet@hec.ca",
-  password: "123456"
+
+
+user_1 = User.new(
+  email: "alexp.coeff@gmail.com",
+  password: "123456",
+  photo: "https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+user_1.save!
+
+user_2 = User.new(
+  email: "alexandre.coeffet@hec.ca",
+  password: "123456",
+)
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+user_2.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+user_2.save!
 
 10.times do
   User.create!(
@@ -115,7 +126,7 @@ all web pages, among other duties.</p>
 <li>Good interpersonal skills.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>HTML</li>
 <li>CSS</li>
@@ -162,7 +173,7 @@ and operating systems may be required.</li>
 <li>Willingness to sit at desk for extended periods.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>Java</li>
 <li>PHP</li>
@@ -207,7 +218,7 @@ development team toward achieving the vision and mission of the organization.</p
 <li>Ability to multi-task and work under pressure.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>Scrum Management</li>
 <li>Analyse</li>
@@ -258,7 +269,7 @@ and technologies.</li>
 <li>Excellent communication skills.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>Adobe Photoshop</li>
 <li>Adobe Illustrator</li>
@@ -269,7 +280,6 @@ skills: "<ul>
 years_experience: rand(1..5),
 company: metrio
 )
-
 
 data_analyst_element_ai = Job.create!(
 title: "Data Analyst",
@@ -309,7 +319,7 @@ recommendations.</li>
 <li>High-level written and verbal communication skills.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>Big Data</li>
 <li>SQL</li>
@@ -319,8 +329,7 @@ years_experience: rand(1..5),
 company: element_ai
 )
 
-
-project_manager_ubosoft = Job.create!(
+project_manager_ubisoft = Job.create!(
 title: "Project Manager",
 description: "<p>We are looking for a Project Manager to be responsible for
 handling our company's ongoing projects. You will be working closely with your
@@ -356,11 +365,200 @@ are on track with project requirements, deadlines, and schedules.</li>
 <li>Budget management experience.</li>
 </ul>
 </div>",
-date_created: Faker::Date.between(from: '2020-11-15', to: '2018-12-03'),
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
 skills: "<ul>
 <li>Project Management</li>
 <li>Communication</li>
 <li>Summarize informations</li>
+</ul>",
+years_experience: rand(1..5),
+company: ubisoft
+)
+
+web_designer_ubisoft = Job.create!(
+title: "Web Designer",
+description: "<p>We are looking for a Web Designer who will be responsible for
+creating great websites for our clients. Primary duties include conceptualizing
+and implementing creative ideas for client websites, as well as creating visual
+elements that are in line with our clients' branding. You will be working closely with
+our web development team to ensure a proper and hassle-free implementation.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Conceptualizing creative ideas with clients.</li>
+<li>Testing and improving the design of the website.</li>
+<li>Maintaining the appearance of websites by enforcing content standards.</li>
+<li>Designing visual imagery for websites and ensuring that they are in line with
+branding for clients.</li>
+<li>Working with different content management systems.</li>
+<li>Communicating design ideas using user flows, process flows, site maps and wireframes.</li>
+<li>Incorporating functionalities and features into websites.</li>
+<li>Designing sample pages including colors and fonts.</li>
+<li>Identifying areas of improvement.</li>
+<li>Preparing design plans and presenting the website structure.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>A relevant diploma in related field.</li>
+<li>Proficiency in graphic design software including Adobe Photoshop, Adobe Illustrator,
+and other visual design tools.</li>
+<li>Proficiency in front-end development web programming languages such as HTML and
+CSS, JQuery, and JavaScript.</li>
+<li>Good understanding of content management systems.</li>
+<li>Good understanding of search engine optimization principles.</li>
+<li>Proficient understanding of cross-browser compatibility issues.</li>
+<li>Excellent visual design skills.</li>
+<li>Up-to-date experience with international web protocols, standards,
+and technologies.</li>
+<li>Creative and open to new ideas.</li>
+<li>Adaptable and willing to learn new techniques.</li>
+<li>Excellent communication skills.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+skills: "<ul>
+<li>Adobe Photoshop</li>
+<li>Adobe Illustrator</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Figma</li>
+</ul>",
+years_experience: rand(1..5),
+company: ubisoft
+)
+
+back_end_developper_ubisoft = Job.create!(
+title: "Back-end developer",
+description: "<p>We are looking for an analytical, results-driven Back-end Developer
+who will work with team members to troubleshoot and improve current back-end applications
+and processes. The Back-end Developer will use his or her understanding of programming languages
+and tools to analyze current codes and industry developments, formulate more efficient processes,
+solve problems, and create a more seamless experience for users. You should have excellent
+communication, computer, and project management skills.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Compile and analyze data, processes, and codes to troubleshoot problems and
+identify areas for improvement.</li>
+<li>Collaborating with the front-end developers and other team members to establish
+objectives and design more functional, cohesive codes to enhance the user experience.</li>
+<li>Developing ideas for new programs, products, or features by monitoring industry
+developments and trends.</li>
+<li>Recording data and reporting it to proper parties, such as clients or leadership.</li>
+<li>Participating in continuing education and training to remain current on best
+practices, learn new programming languages, and better assist other team members.</li>
+<li>Taking lead on projects, as needed.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>Bachelor’s degree in computer programming, computer science, or a related field.</li>
+<li>Fluency or understanding of specific languages, such as Java, Ruby, C++, PHP, or Python,
+and operating systems may be required.</li>
+<li>Strong understanding of the web development cycle and programming techniques and tools.</li>
+<li>Focus on efficiency, user experience, and process improvement.</li>
+<li>Excellent project and time management skills.</li>
+<li>Strong problem solving and verbal and written communication skills.</li>
+<li>Ability to work independently or with a group.</li>
+<li>Willingness to sit at desk for extended periods.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+skills: "<ul>
+<li>Java</li>
+<li>PHP</li>
+<li>Python</li>
+<li>Ruby</li>
+<li>C++</li>
+</ul>",
+years_experience: rand(1..5),
+company: ubisoft
+)
+
+front_end_developper_ubisoft = Job.create!(
+title: "Front-end developer",
+description: "<p>We are looking for a proactive programmer with a keen eye for
+design for the position of Front End Developer. You will be responsible for
+ensuring the alignment of web design and user experience requirements, optimizing
+web pages for maximum efficiency and maintaining brand consistency across
+all web pages, among other duties.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Determining the structure and design of web pages.</li>
+<li>Ensuring user experience determines design choices.</li>
+<li>Developing features to enhance the user experience.</li>
+<li>Striking a balance between functional and aesthetic design.</li>
+<li>Ensuring web design is optimized for smartphones.</li>
+<li>Building reusable code for future use.</li>
+<li>Optimizing web pages for maximum speed and scalability.</li>
+<li>Utilizing a variety of markup languages to write web pages.</li>
+<li>Maintaining brand consistency throughout design.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>Degree in Computer Science or related field.</li>
+<li>Understanding of key design principles.</li>
+<li>Proficiency with HTML, CSS, JavaScript and jQuery.</li>
+<li>Understanding of server-side CSS.</li>
+<li>Experience with graphic design applications such as Adobe Illustrator.</li>
+<li>Experience with responsive and adaptive design.</li>
+<li>Understanding of SEO principles.</li>
+<li>Good problem solving skills.</li>
+<li>Excellent verbal communication skills.</li>
+<li>Good interpersonal skills.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+skills: "<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>jQuery</li>
+<li>SEO</li>
+</ul>",
+years_experience: rand(1..5),
+company: ubisoft
+)
+
+product_owner_ubisoft = Job.create!(
+title: "Product Owner",
+description: "<p>We are looking for a dedicated Product Director to be the point
+person in our scrum team. The Product Owner will be responsible for defining
+the product vision and managing the product development process. Other
+responsibilities include supporting the scrum team, managing backlog items, and
+optimizing the value of the product(s). You should also be able to lead the product
+development team toward achieving the vision and mission of the organization.</p>
+<div class='responsibilities'>Responsibility :
+<ul>
+<li>Strategizing and presenting ideas to stakeholders.</li>
+<li>Defining product features according to customer needs.</li>
+<li>Leading the development process.</li>
+<li>Acting as the main point of contact between teams and stakeholders.</li>
+<li>Managing and prioritizing product backlog items.</li>
+<li>Assisting the scrum/product development team to meet the objectives of each sprint.</li>
+<li>Optimizing web pages for maximum speed and scalability.</li>
+<li>Adjusting and improving each iteration of the product before release.</li>
+<li>Identifying areas of improvement.</li>
+<li>Keeping customers and stakeholders informed of the status of the product.</li>
+</div>
+<div class='requirements'>Requirements :
+</ul>
+<ul>
+<li>BA in Computer Science, Information Systems, or related field.</li>
+<li>Previous working experience as a Product Owner.</li>
+<li>In-depth knowledge of Agile methodologies.</li>
+<li>Strong analytical and problem-solving skills.</li>
+<li>Strong communication skills, written and verbal.</li>
+<li>Strong presentation skills.</li>
+<li>Ability to multi-task and work under pressure.</li>
+</ul>
+</div>",
+date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+skills: "<ul>
+<li>Scrum Management</li>
+<li>Analyse</li>
+<li>Logic & organization</li>
+<li>Project Management</li>
 </ul>",
 years_experience: rand(1..5),
 company: ubisoft
@@ -378,7 +576,7 @@ puts "creating contacts"
     "Web Designer", "Project Manager", "Data Analyst", "Full-stack developer",
     "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"].sample,
     contact_email: Faker::Internet.email,
-    start_date: Faker::Date.between(from: '2012-09-25', to: '2018-09-25'),
+    start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
     end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
     user_id: [id, nil].sample

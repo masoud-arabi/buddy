@@ -14,4 +14,16 @@ class User < ApplicationRecord
   def conversations
     sender_conversations.or(receiver_conversations)
   end
+
+  has_one_attached :photo
+
+  def match_priority_to_job(job_title)
+    self.priorities.each do |priority|
+      if job_title == priority.job_search
+        return priority.position
+      end
+    end
+    return false
+  end
+
 end
