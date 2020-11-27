@@ -51,6 +51,13 @@ user_2.save!
   )
 end
 
+
+
+user_two = User.create!(
+  email: "maxime@gmail.com",
+  password: "123456789"
+)
+
  puts "creating companies"
 
 ubisoft = Company.create!(
@@ -226,7 +233,8 @@ puts "creating jobs"
   <li>Project Management</li>
   </ul>",
   years_experience: rand(1..5),
-  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
+  # company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
+  company: alithya
   )
 
   web_designer_metrio = Job.create!(
@@ -379,6 +387,14 @@ end
 puts "creating contacts"
 
 @array_contact = [*User.first.id..User.last.id]
+id = @array_contact.sample
+ contact_two = Contact.create!(
+  first_name: "Maxime",
+  last_name: "Lapraye",
+  contact_email: "maxime@gmail.com",
+  user_id: user_two.id,
+  company: alithya
+  )
 50.times do
   id = @array_contact.sample
   contact = Contact.new(
@@ -391,7 +407,7 @@ puts "creating contacts"
     start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
     end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
-    user_id: [id, nil].sample,
+    user_id: [id, nil].sample
   )
   contact.save!
   number = @array_contact.index(id).to_i
@@ -399,15 +415,7 @@ puts "creating contacts"
 end
 
 
-user_one = User.create!(
-  email: "masoud@gmail.com",
-  password: "123456789"
-)
 
-user_two = User.create!(
-  email: "maxime@gmail.com",
-  password: "123456789"
-)
 
 # conversation = Conversation.create!(
 #   sender: user_one,
@@ -441,6 +449,11 @@ User.all.each do |user|
     i = rand(0..49)
   end
 end
+
+Connection.create!(
+  user: user_1,
+  contact: contact_two
+)
 
 puts "creating priorities"
 
@@ -480,15 +493,3 @@ Priority.create!(
   position: 3
   )
 
- contact_two = Contact.create!(
-  first_name: "Maxime",
-  last_name: "Lapraye",
-  contact_email: "maxime@gmail.com",
-  user: user_two,
-  company: alithya
-  )
-
-Connection.create!(
-  user: user_1,
-  contact: contact_two
-)
