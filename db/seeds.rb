@@ -19,10 +19,9 @@ puts "Destroying users"
 User.destroy_all
 puts "Destroying priorities"
 Priority.destroy_all
+puts "Destroying conversations"
+Conversation.destroy_all
 
-<<<<<<< HEAD
-User.destroy_all
-=======
 puts "creating users"
 
 user_1 = User.create!(
@@ -38,12 +37,11 @@ user_2 = User.create!(
 10.times do
   User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: "123456"
   )
 end
 
-puts "creating companies"
->>>>>>> master
+ puts "creating companies"
 
 ubisoft = Company.create!(
 name: "Ubisoft Montréal",
@@ -390,32 +388,33 @@ puts "creating contacts"
   @array_contact.slice!(number)
 end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-user = User.create!(
+
+user_one = User.create!(
   email: "masoud@gmail.com",
   password: "123456789"
 )
 
 user_two = User.create!(
-  email: "martin@gmail.com",
+  email: "maxime@gmail.com",
   password: "123456789"
 )
 
-conversation = Conversation.create!(
-  sender: user,
-  receiver: user_two
-)
+# conversation = Conversation.create!(
+#   sender: user_one,
+#   receiver: user_two
+# )
+# conversation_two = Conversation.create!(
+#   sender: user_1,
+#   receiver: user_2
+# )
 
-message = Message.create!(
-  user: user,
-  conversation: conversation,
-  content: "jjjjj"
-)
-=======
-user_id_1_priority_1 = Priority.create!(
-  user_id: 1,
-=======
+
+# message = Message.create!(
+#   user: user_1,
+#   conversation: conversation_two,
+#   content: "Hello"
+# )
+# =======
 puts "creating connections"
 
 User.all.each do |user|
@@ -437,7 +436,7 @@ puts "creating priorities"
 
 Priority.create!(
   user: user_1,
->>>>>>> master
+
   job_search: "Product Owner",
   position: 1
   )
@@ -453,8 +452,6 @@ Priority.create!(
   job_search: "Back-end developer",
   position: 3
   )
->>>>>>> 9feafa16790f2f073ffc818e04517b54be4b48c9
-
 Priority.create!(
   user: user_2,
   job_search: "Product Owner",
@@ -473,3 +470,15 @@ Priority.create!(
   position: 3
   )
 
+ contact_two = Contact.create!(
+  first_name: "Maxime",
+  last_name: "Lapraye",
+  contact_email: "maxime@gmail.com",
+  user: user_two,
+  company: alithya
+  )
+
+Connection.create!(
+  user: user_1,
+  contact: contact_two
+)

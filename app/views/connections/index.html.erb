@@ -5,10 +5,11 @@
     <h3>job title: <%= connection.contact.job_title%></h3>
     <h3>company name: <%= connection.contact.company.name%></h3>
     <%= current_user.id %>
-    <% if connection.contact.is_a_user? %>
-      <%= link_to "Send a message", profile_messages_path(connection) %>
+    <% if connection.contact.is_a_user?%>
+      <%= link_to " a message", user_conversations_path(connection.contact.user_id), method: :post %>
+
     <% else %>
-      <%= link_to "Send a mail", profile_messages_path(connection) %>
+      <%= link_to "Send a mail", conversations_path(connection) %>
     <% end %>
     <% connection.contact.company.jobs.each do |job| %>
     <ul>

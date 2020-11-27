@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
 
   def create
-    @messsage = current_user.messages.build(message_params)
-    @messsage.conversation_id = @conversation_id
-    @messsage.save!
+    @conversation = Conversation.find(params[:conversation_id])
+    @message = Message.new(message_params)
+    @message.user = current_user
+    @message.conversation = @conversation
+    @message.save
     flash[:success] = "Your message was sent!"
     redirect_to conversation_path(@conversation)
   end
@@ -11,6 +13,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:merssage).permit(:content)
+    params.require(:message).permit(:content)
   end
 end
