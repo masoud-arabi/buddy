@@ -1,6 +1,6 @@
 <div class="header">
   <% if current_user.present? && current_user.photo.attached? %>
-    <%= link_to profile_path(current_user) do %>
+    <%= link_to profiles_path(current_user) do %>
       <%= cl_image_tag current_user.photo.key, class: "buddy-avatar" %>
     <% end %>
   <% else %>

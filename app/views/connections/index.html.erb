@@ -16,7 +16,7 @@
             <% if connection.contact.is_a_user?%>
               <%= link_to " a message", user_conversations_path(connection.contact.user_id), method: :post %>
             <% else %>
-              <%= link_to "Send a mail", conversations_path(connection) %>
+              <%= link_to " a message", user_conversations_path(connection.contact.user_id), method: :post %>
             <% end %>
               <ul>
                 <%= job.title %>
@@ -24,7 +24,6 @@
           </div>
         <% end %>
       <% seen_jobs.push(job.id) %>
->>>>>>> master
     <% end %>
   <% end %>
 </div>
