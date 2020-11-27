@@ -1,23 +1,25 @@
-<h1>Your profile</h1>
+<div class="container-profile">
+<h1 style="text-align: center;" >YOUR PROFILE</h1>
 
-<div>Buddies
-<p><%= @user.connections.count%></p></div>
+<h1>Your Buddies</h1>
+<p><%= @user.connections.count%></p>
 
-<div>Opportunities
-<p><%= %></p></div>
+<h1> Opportunities</h1>
+<p><%= %></p>
 
-<h3>Full name</h3>
-<%= @user.first_name %> <%= @user.last_name %>
-<h3>Email</h3>
-<%= @user.email %>
-<h3>Phone</h3>
-<%= @user.phone_number %>
-<h3>Address</h3>
-<%= @user.city_address %> <%= @user.appartement_address %>
-<h3>background</h3>
-<%= @user.background %>
-<h3>About me:</h3>
-<%= @user.description %>
+<h1>Full name:</h1>
+<h2> <%= @user.first_name %> <%= @user.last_name %></h2>
+<h1>Email:</h1>
+<h2><%= @user.email %></h2>
+<h1>Phone:</h1>
+<h2><%= @user.phone_number %></h2>
+<h1>Address:</h1>
+<h2><%= @user.city_address %> <%= @user.appartement_address %></h2>
+<h1>Background:</h1>
+<h2><%= @user.background %></h2>
+<h1>About me:</h1>
+<h2><%= @user.description %></h2>
+</div>
 
 
 
