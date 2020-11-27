@@ -9,13 +9,15 @@
         <% unless seen_jobs.include?(job.id) || current_user.match_priority_to_job(job.title) == false %>
 
           <div class="card">
-            <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="buddy_avatar">
-              <div class="card-connection">
+            <!-- <div class="card-image"> -->
+              <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
+            <!-- </div> -->
+              <div class="card-connection-details">
                 <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
-                <h3><%= contact&.company&.name%></h3>
-                <h3><%= contact&.first_name %>'s job : <%= contact&.job_title%></h3>
+                <h2><%= contact&.company&.name%></h2>
+                <h2><%= contact&.first_name %>'s job : <%= contact&.job_title%></h2>
                 <% connection = Connection.find_by(contact: contact) %>
-                <h3><%= connection&.duration_work %></h3>
+                <h2><%= connection&.duration_work %></h2>
               </div>
           </div>
 
