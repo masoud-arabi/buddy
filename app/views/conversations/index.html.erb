@@ -1,0 +1,4 @@
+<% @conversations.each do |conversation| %>
+<p><%= conversation.sender.email %> / <%= conversation.receiver.email %></p>
+  <%= link_to 'View conversation', conversation_path(conversation) %>
+<%  end %>

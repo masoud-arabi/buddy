@@ -7,6 +7,7 @@ class Connection < ApplicationRecord
   end
 
   def duration_work
+    return if self.contact.end_date.nil? || self.contact.start_date.nil?
     if self.contact.end_date == Date.today
       return "From #{self.contact.start_date.strftime("%b %Y")}"
     else

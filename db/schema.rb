@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 2020_11_26_171002) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -83,12 +92,12 @@ ActiveRecord::Schema.define(version: 2020_11_26_171002) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "sender_user_id"
-    t.bigint "receiver_user_id"
-    t.index ["receiver_user_id"], name: "index_messages_on_receiver_user_id"
-    t.index ["sender_user_id"], name: "index_messages_on_sender_user_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "priorities", force: :cascade do |t|
@@ -127,8 +136,10 @@ ActiveRecord::Schema.define(version: 2020_11_26_171002) do
   add_foreign_key "connections", "users"
   add_foreign_key "contacts", "companies"
   add_foreign_key "contacts", "users"
+  add_foreign_key "conversations", "users", column: "receiver_id"
+  add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "jobs", "companies"
-  add_foreign_key "messages", "users", column: "receiver_user_id"
-  add_foreign_key "messages", "users", column: "sender_user_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "priorities", "users"
 end
