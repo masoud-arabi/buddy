@@ -1,29 +1,40 @@
 <h1>  All Your Buddies </h1>
 <div class="connections">
   <% seen_jobs = [] %>
+  <% seen_contacts = [] %>
+  <% previous_contact = nil %>
   <% @connections.each_with_index do |connection, index| %>
+    <% contact = @connections[index] %>
+    <% jobs_per_connections = connection.company.jobs.select do |job| %>
+      <% !((seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || (current_user.match_priority_to_job(job.title) == false && !current_user.matches_at_least_one_job(connection.company.jobs))) %>
+    <% end %>
     <% connection.company.jobs.each do |job| %>
-      <% next if seen_jobs.include?(job.id) %>
-        <% contact = @connections[index] %>
-        <% unless seen_jobs.include?(job.id) || current_user.match_priority_to_job(job.title) == false %>
+      <% next if previous_contact == contact %>
+        <% unless (seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || !current_user.matches_at_least_one_job(connection.company.jobs) %>
           <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
           <h3><%= contact&.company&.name%></h3>
           <h3><%= contact&.first_name %>'s job : <%= contact&.job_title%></h3>
           <% connection = Connection.find_by(contact: contact) %>
           <h3><%= connection&.duration_work %></h3>
-          <div class="priority_<%= current_user.match_priority_to_job(job.title) %> ">
-            <% if contact&.is_a_user? %>
-              <%= link_to "Send a message", profile_messages_path(connection) %>
-            <% else %>
-              <%= link_to "Send a mail", profile_messages_path(connection) %>
-            <% end %>
-              <ul>
-                <%= job.title %>
-              </ul>
-          </div>
+          <% if contact&.is_a_user? %>
+            <%= link_to "Send a message", profile_messages_path(connection) %>
+          <% else %>
+            <%= link_to "Send a mail", profile_messages_path(connection) %>
+          <% end %>
+          <% jobs_per_connections.each do |job_per_connection| %>
+          <% next if current_user.match_priority_to_job(job_per_connection.title) == false %>
+            <ul>
+              <li class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
+                <%= job_per_connection.title %>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
       <% seen_jobs.push(job.id) %>
+      <% seen_contacts.push(contact.id) %>
+      <% previous_contact = contact %>
     <% end %>
   <% end %>
 </div>
+
 
