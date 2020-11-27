@@ -19,4 +19,13 @@ class User < ApplicationRecord
     end
     return false
   end
+
+  def matches_at_least_one_job(jobs)
+    jobs.each do |job|
+      self.priorities.each do |priority|
+        return true if priority.job_search == job.title
+      end
+    end
+    return false
+  end
 end
