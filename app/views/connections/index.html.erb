@@ -14,10 +14,9 @@
             <!-- </div> -->
               <div class="card-connection-details">
                 <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
-                <h2><%= contact&.company&.name%></h2>
-                <h2><%= contact&.first_name %>'s job : <%= contact&.job_title%></h2>
+                <h2><%= contact&.job_title%> @ <%= contact&.company&.name%></h2>
                 <% connection = Connection.find_by(contact: contact) %>
-                <h2><%= connection&.duration_work %></h2>
+                <h3><%= connection&.duration_work %></h3>
               </div>
           </div>
 

@@ -19,27 +19,24 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 2px;
   padding-left: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   margin-left: 40px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-connection img{
-  display: flex;
-  width: 52px;
-  height: 52px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  border-radius: 5px;
+.card-connection-details {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.card-connection-details h2{
+  font-size: 16px
 }
 
 .card-image {
   width: 52px;
   height: 52px;
   position: absolute;
-  top: 30px;
+  top: 26px;
   left: -30px;
   border-radius: 5px;
 }
