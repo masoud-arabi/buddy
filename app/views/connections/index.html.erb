@@ -46,7 +46,7 @@
           <% if contact&.is_a_user? %>
               <%= link_to " a message", user_conversations_path(connection.contact.user_id), method: :post %>
           <% else %>
-              <%= link_to " a mail", user_conversations_path(connection.contact.user_id), method: :post %>
+              <%#= link_to " a mail", conversation_messages_path(connection.contact.user_id), method: :post %>
           <% end %>
         <% end %>
 
