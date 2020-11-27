@@ -1,4 +1,73 @@
 .container-body {
   margin-top: 116px;
-  padding: 20px;
+  width: 100%;
+  }
+
+img {
+  width: 52px;
+  height: 52px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.connections-wrapper{
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+}
+
+.card-connection{
+  width: 100%;
+  position:relative;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  padding-left: 40px;
+  margin-left: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-connection-details {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.card-connection-details h2{
+  font-size: 16px
+}
+
+.card-image {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  top: 26px;
+  left: -30px;
+  border-radius: 5px;
+}
+
+.job-container{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  margin-left:40px;
+}
+
+.job-card{
+  position:relative;
+  width: 100%;
+  background-color: $brand-color;
+  border-radius: 3px;
+  padding-left: 20px;
+  margin-left: 60px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.job-card h1 {
+  color: white;
+  font-weight: 400;
 }
