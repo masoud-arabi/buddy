@@ -1,14 +1,25 @@
 <div class="container">
-<h1>Update your profile</h1>
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6" >
+      <h1>Update your profile</h1>
 
-<%= simple_form_for(current_user, url: profiles_path) do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :description %>
-  <%= f.input :background %>
-  <%= f.input :values %>
-  <%= f.submit class: "btn btn-primary " %>
-<% end %>
 
+      <%= simple_form_for(@user, url: profiles_path) do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :description %>
+        <%= f.input :background %>
+        <%= f.input :email %>
+          <% 3.times do %>
+            <%= fields_for @user.priorities do |c| %>
+
+                <%= c.text_field :job_search %>
+              <% end %>
+            <% end %>
+        <%= f.input :values %>
+        <%= f.submit class: "btn btn-primary " %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -43,6 +44,7 @@ user_2 = User.new(
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_2.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
 user_2.save!
+
 
 10.times do
   User.create!(
@@ -480,15 +482,3 @@ Priority.create!(
   position: 3
   )
 
- contact_two = Contact.create!(
-  first_name: "Maxime",
-  last_name: "Lapraye",
-  contact_email: "maxime@gmail.com",
-  user: user_two,
-  company: alithya
-  )
-
-Connection.create!(
-  user: user_1,
-  contact: contact_two
-)

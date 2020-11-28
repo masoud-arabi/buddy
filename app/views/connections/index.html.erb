@@ -5,6 +5,8 @@
   <% seen_jobs = [] %>
   <% seen_contacts = [] %>
   <% previous_contact = nil %>
+  <% buddies = 0 %>
+  <% array_opportunities = [] %>
 
   <% @connections.each_with_index do |connection, index| %>
     <% contact = @connections[index] %>
@@ -13,8 +15,11 @@
     <% end %>
 
     <% connection.company.jobs.each do |job| %>
+      <% array_opportunities.push(job.id) if current_user.match_priority_to_job(job.title)%>
       <% next if previous_contact == contact %>
         <% unless (seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || !current_user.matches_at_least_one_job(connection.company.jobs) %>
+
+
 
           <div class="connections-wrapper">
             <div class="card-connection">
@@ -24,6 +29,7 @@
                 <h2><%= contact&.job_title%> @ <%= contact&.company&.name%></h2>
                 <% connection = Connection.find_by(contact: contact) %>
                 <h3><%= connection&.duration_work %></h3>
+                <% buddies += 1 %>
               </div>
             </div>
           </div>
@@ -55,4 +61,9 @@
   <% end %>
 </div>
 
+<div>Opportunities
+<p><%= array_opportunities.uniq.count %></p></div>
+
+<div>Buddies
+<p><%= buddies %></p></div>
 

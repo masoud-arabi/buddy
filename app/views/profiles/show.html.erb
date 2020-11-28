@@ -1,10 +1,10 @@
 <h1>Your profile</h1>
 
-<div>Buddies
-<p><%= @user.connections.count%></p></div>
+<div>All Opportunities
+<p><%= Job.all.count %></p></div>
 
-<div>Opportunities
-<p><%= %></p></div>
+<div>All Contacts
+<p><%= Contact.all.count %></p></div>
 
 <h3>Full name</h3>
 <%= @user.first_name %> <%= @user.last_name %>
