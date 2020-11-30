@@ -399,13 +399,15 @@ id = @array_contact.sample
   )
 50.times do
   id = @array_contact.sample
+  fn = Faker::Name.first_name
+  sn = Faker::Name.last_name
   contact = Contact.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    first_name: fn,
+    last_name: sn,
     job_title: ["Product Owner", "Front-end developer", "Back-end developer",
     "Web Designer", "Project Manager", "Data Analyst", "Full-stack developer",
     "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"].sample,
-    contact_email: Faker::Internet.email,
+    contact_email: "#{fn}.#{sn}@gmail.com",
     start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
     end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
@@ -416,25 +418,6 @@ id = @array_contact.sample
   @array_contact.slice!(number)
 end
 
-
-
-
-# conversation = Conversation.create!(
-#   sender: user_one,
-#   receiver: user_two
-# )
-# conversation_two = Conversation.create!(
-#   sender: user_1,
-#   receiver: user_2
-# )
-
-
-# message = Message.create!(
-#   user: user_1,
-#   conversation: conversation_two,
-#   content: "Hello"
-# )
-# =======
 puts "creating connections"
 
 User.all.each do |user|
@@ -452,10 +435,6 @@ User.all.each do |user|
   end
 end
 
-Connection.create!(
-  user: user_1,
-  contact: contact_two
-)
 
 puts "creating priorities"
 
@@ -494,4 +473,3 @@ Priority.create!(
   job_search: "Back-end developer",
   position: 3
   )
-
