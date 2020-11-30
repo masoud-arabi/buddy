@@ -62,20 +62,23 @@
         <p>Below you can define <strong>3 job search priorities</strong>. It will
         then filter the contacts list with the right industry, job title and location.</p>
         <%# @user.priorities.each do |priority| %>
-        <% 3.times do %>
+        <% user_priorities = current_user.priorities.to_a %>
+        <% 3.times do |i| %>
           <%= f.simple_fields_for :priorities do |c| %>
+            <% priority = user_priorities.slice!(i) %>
             <% i += 1 %>
             <div class="priority_<%= i %>">
-              <h5><%= i %></h5>
-              <%= c.input :job_search, input_html: { id: i, name: "user[priority][job_search][prio_#{i}]" } %>
-              <%= c.input :industry, input_html: { id: i, name: "user[priority][industry][prio_#{i}]" } %>
-              <%= c.input :location, input_html: { id: i, name: "user[priority][location][prio_#{i}]" } %>
+                <h5><%= i %></h5>
+                <%= c.input :job_search, input_html: { name: "user[priority][prio_#{i}][job_search]" } %>
+                <%= c.input :industry, input_html: { name: "user[priority][prio_#{i}][industry]" } %>
+                <%= c.input :location, input_html: { name: "user[priority][prio_#{i}][location]" } %>
+                <%= hidden_field("user[priority][prio_#{i}]", "id", value: priority ? priority.id : "nil" ) %>
             </div>
           <% end %>
         <% end %>
         <%= f.input :description %>
         <%= f.input :values %>
-        <%= f.submit class: "btn btn-primary " %>
+        <%= f.submit class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

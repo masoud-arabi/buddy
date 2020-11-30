@@ -8,7 +8,20 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params) && current_user.update(user_priority_params)
+    priority_updated = false
+    user_priority_params["priority"].values.each do |priority|
+      if priority["id"] == "nil"
+        priority = Priority.new(priority)
+        priority.user = current_user
+        priority.save!
+        priority_updated = true
+      else
+        new_priority = Priority.find(priority["id"])
+        new_priority.update(priority)
+        priority_updated = true
+      end
+    end
+    if current_user.update(user_params) || priority_updated
       redirect_to profiles_path
     else
       render :edit
@@ -32,22 +45,11 @@ class ProfilesController < ApplicationController
       :start_date,
       :end_date,
       :desciption,
-      :values,
-      :priority
+      :values
     )
   end
 
   def user_priority_params
-    j = [:job_search, :industry, :location]
-    i = [:prio_1, :prio_2, :prio_3]
-    index = 0
-    hash = {}
-    j.each do |j_variable|
-      i.each do |i_variable|
-        result = params.require(:user)[:priority][j_variable].permit(i_variable)
-        index += 1
-      hash.store(index, result)
-      end
-    end
+    params.require(:user).permit(priority: { prio_1: {}, prio_2: {}, prio_3: {} })
   end
 end
