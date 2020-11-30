@@ -450,10 +450,6 @@ User.all.each do |user|
   end
 end
 
-Connection.create!(
-  user: user_1,
-  contact: contact_two
-)
 
 puts "creating priorities"
 
@@ -492,4 +488,3 @@ Priority.create!(
   job_search: "Back-end developer",
   position: 3
   )
-
