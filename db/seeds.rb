@@ -479,16 +479,3 @@ Priority.create!(
   job_search: "Back-end developer",
   position: 3
   )
-
- contact_two = Contact.create!(
-  first_name: "Maxime",
-  last_name: "Lapraye",
-  contact_email: "maxime@gmail.com",
-  user: user_two,
-  company: alithya
-  )
-
-Connection.create!(
-  user: user_1,
-  contact: contact_two
-)
