@@ -461,7 +461,6 @@ puts "creating priorities"
 
 Priority.create!(
   user: user_1,
-
   job_search: "Product Owner",
   position: 1
   )
@@ -477,6 +476,7 @@ Priority.create!(
   job_search: "Back-end developer",
   position: 3
   )
+
 Priority.create!(
   user: user_2,
   job_search: "Product Owner",

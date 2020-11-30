@@ -1,5 +1,5 @@
 <div class="container-profile">
-<h1 style="text-align: center;">YOUR PROFILE</h1>
+<h1 style="text-align: center;">MY PROFILE</h1>
 
 <div>All Opportunities
 <p><%= Job.all.count %></p></div>
@@ -9,17 +9,41 @@
 
 
 <h1>Full name:</h1>
-<h2> <%= @user.first_name %> <%= @user.last_name %></h2>
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+
 <h1>Email:</h1>
 <h2><%= @user.email %></h2>
+
 <h1>Phone:</h1>
 <h2><%= @user.phone_number %></h2>
+
 <h1>Address:</h1>
-<h2><%= @user.city_address %> <%= @user.appartement_address %></h2>
+<h2><%= @user.city_address %> <%= @user.country_select %></h2>
+
 <h1>Background:</h1>
 <h2><%= @user.background %></h2>
+<h1>Diploma:</h1>
+<h2><%= @user.diploma %></h2>
+<h1>Field of studies:</h1>
+<h2><%= @user.field_of_studies %></h2>
+<h2>From <%= @user.start_date %>, to <%= @user.end_date %></h2>
+
 <h1>About me:</h1>
 <h2><%= @user.description %></h2>
+
+<h1>My values</h1>
+<h2><%= @user.values %></h2>
+
+
+<% @user.priorities.each do |priority| %>
+  <div class="priority_<%= priority.position %>">
+    <h1>Priority n°<%= priority.position %></h1>
+    <h2><%= priority.job_search %></h2>
+    <h2><%= priority.industry %></h2>
+    <h2><%= priority.location %></h2>
+  </div>
+<% end %>
+
 </div>
 
 <%= link_to " EDIT PROFILE ", edit_profiles_path %>

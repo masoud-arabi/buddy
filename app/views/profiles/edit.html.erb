@@ -3,23 +3,82 @@
     <div class="col-sm-6" >
       <h1>Update your profile</h1>
 
-
       <%= simple_form_for(@user, url: profiles_path) do |f| %>
         <%= f.input :photo, as: :file %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%= f.input :description %>
-        <%= f.input :background %>
         <%= f.input :email %>
-          <% 3.times do %>
-            <%= fields_for @user.priorities do |c| %>
+        <%#= f.email_field_with_label :email, autofocus: true, autocomplete: "email" %>
+        <%= f.input :phone_number %>
+        <%= f.input :city_address %>
+        <%#= f.input :country_select %>
+        <%= f.input :background %>
+        <div class="form-group">
+          <label for="user_field_of_studies">Field of studies</label>
+            <select class="form-control" >
+              <option>Aeronautics and Aviation Science</option>
+              <option>Anthropology</option>
+              <option>Art</option>
+              <option>Business Administration</option>
+              <option>Chemistry</option>
+              <option>Economics</option>
+              <option>Education</option>
+              <option>Engineering</option>
+              <option>Environmental Science and Health</option>
+              <option>Journalism</option>
+              <option>Music</option>
+              <option>Nursing</option>
+              <option>Oceanography</option>
+              <option>Pharmacy</option>
+              <option>Photography</option>
+              <option>Physical Therapy</option>
+              <option>Political Science and International Relations</option>
+              <option>Psychology</option>
+              <option>Public Relations and Administration</option>
+              <option>Statistics</option>
+              <option>Urban Planning</option>
+            </select>
+        </div>
+        <%= f.input :diploma %>
+        <div class="form-row">
+          <div class="col">
+            <%= f.input :start_date %>
+          </div>
+          <div class="col">
+            <%= f.input :end_date %>
+          </div>
+        </div>
 
-                <%= c.text_field :job_search %>
-              <% end %>
-            <% end %>
+
+        <div class="input-group date" data-provide="datepicker">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+        </div>
+
+        <% i = 0 %>
+        <h3>Priorities</h3>
+        <p>Below you can define <strong>3 job search priorities</strong>. It will
+        then filter the contacts list with the right industry, job title and location.</p>
+        <%# @user.priorities.each do |priority| %>
+        <% 3.times do %>
+          <%= f.simple_fields_for :priorities do |c| %>
+            <% i += 1 %>
+            <div class="priority_<%= i %>">
+              <h5><%= i %></h5>
+              <%= c.input :job_search, input_html: { id: i, name: "user[priority][job_search][prio_#{i}]" } %>
+              <%= c.input :industry, input_html: { id: i, name: "user[priority][industry][prio_#{i}]" } %>
+              <%= c.input :location, input_html: { id: i, name: "user[priority][location][prio_#{i}]" } %>
+            </div>
+          <% end %>
+        <% end %>
+        <%= f.input :description %>
         <%= f.input :values %>
         <%= f.submit class: "btn btn-primary " %>
       <% end %>
     </div>
   </div>
 </div>
+
+
