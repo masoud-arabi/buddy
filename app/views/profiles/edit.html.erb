@@ -63,15 +63,16 @@
         then filter the contacts list with the right industry, job title and location.</p>
         <%# @user.priorities.each do |priority| %>
         <% user_priorities = current_user.priorities.to_a %>
-        <% 3.times do |i| %>
+        <% 3.times do |p_index| %>
+          <% priority = user_priorities.slice(p_index) %>
           <%= f.simple_fields_for :priorities do |c| %>
-            <% priority = user_priorities.slice!(i) %>
+
             <% i += 1 %>
             <div class="priority_<%= i %>">
                 <h5><%= i %></h5>
-                <%= c.input :job_search, input_html: { name: "user[priority][prio_#{i}][job_search]" } %>
-                <%= c.input :industry, input_html: { name: "user[priority][prio_#{i}][industry]" } %>
-                <%= c.input :location, input_html: { name: "user[priority][prio_#{i}][location]" } %>
+                <%= c.input :job_search, input_html: { name: "user[priority][prio_#{i}][job_search]", value: priority ? priority.job_search : "" } %>
+                <%= c.input :industry, input_html: { name: "user[priority][prio_#{i}][industry]", value: priority ? priority.industry : "" } %>
+                <%= c.input :location, input_html: { name: "user[priority][prio_#{i}][location]", value: priority ? priority.location : "" } %>
                 <%= hidden_field("user[priority][prio_#{i}]", "id", value: priority ? priority.id : "nil" ) %>
             </div>
           <% end %>
