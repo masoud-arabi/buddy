@@ -33,22 +33,35 @@
           </div>
 
           <div class="job-container">
+
             <% jobs_per_connections.each do |job_per_connection| %>
               <% next if current_user.match_priority_to_job(job_per_connection.title) == false %>
-                <div class="job-card">
-                  <li class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
+
+              <div>
+
+                <div class="job-card" onclick="window.toggleDescription(this)">
+                  <h1 class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
                   <%= job_per_connection.title %>
-                  </li>
+                  </h1>
+                  <h3>id: <%= job_per_connection.id %></h3>
                 </div>
+
+                <div class="job-desc-container" style="display:none;">
+                  <%= job_per_connection.description.html_safe %>
+
+                  <div class="btn">
+                    <% if contact&.is_a_user? %>
+                      <%= link_to " Connect with your Buddy", user_conversations_path(connection.contact.user_id), method: :post %>
+                    <% else %>
+                      <%= link_to " send an e-mail" %>
+                    <% end %>
+                  </div>
+
+                </div>
+
+              </div>
             <% end %>
           </div>
-
-
-          <% if contact&.is_a_user? %>
-              <%= link_to " send a message", user_conversations_path(connection.contact.user_id), method: :post %>
-          <% else %>
-              <%= link_to " send an e-mail" %>
-          <% end %>
         <% end %>
 
         <% seen_jobs.push(job.id) %>
