@@ -1,4 +1,6 @@
 <% @conversations.each do |conversation| %>
-<p><%= conversation.sender.email %> / <%= conversation.receiver.email %></p>
+  <% chat_with_user = current_user == conversation.sender ? conversation.receiver : @conversation.sender %>
+  <% @chat_with_contact = Contact.find_by(user: chat_with_user) %>
+  <p>You and <%= @chat_with_contact.first_name %></p>
   <%= link_to 'View conversation', conversation_path(conversation) %>
 <%  end %>
