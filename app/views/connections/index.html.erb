@@ -31,11 +31,16 @@
           <div class="job-container">
             <% jobs_per_connections.each do |job_per_connection| %>
               <% next if current_user.match_priority_to_job(job_per_connection.title) == false %>
-                <div class="job-card">
+              <div>
+                <div class="job-card" onclick="window.toggleDescription(this)">
                   <li class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
                   <%= job_per_connection.title %>
                   </li>
                 </div>
+                <div class="job-desc-container" style="display:none;">
+                  <%= job_per_connection.description.html_safe %>
+                </div>
+              </div>
             <% end %>
           </div>
 

@@ -81,3 +81,15 @@ img {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
 }
+
+.job-desc-container{
+  width: 100%;
+  // position:relative;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
