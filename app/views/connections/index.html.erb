@@ -41,7 +41,13 @@
 
                 <div class="job-desc-container" style="display:none;">
                   <%= job_per_connection.description.html_safe %>
-
+                  <div class="btn">
+                    <% if contact&.is_a_user? %>
+                      <%= link_to " Connect with your Buddy", user_conversations_path(connection.contact.user_id), method: :post %>
+                    <% else %>
+                      <%= link_to " send an e-mail" %>
+                    <% end %>
+                  </div>
                 </div>
 
             <% end %>
