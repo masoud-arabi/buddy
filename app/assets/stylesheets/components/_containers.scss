@@ -60,6 +60,7 @@ img {
 
 .job-card{
   position:relative;
+  display: flex;
   width: 100%;
   background-color: $brand-color;
   border-radius: 3px;
@@ -72,9 +73,19 @@ img {
 }
 
 .job-card h1 {
-  color: white;
   font-weight: 400;
+  padding: 5px;
 }
+
+.job-card h3 {
+  color: #F3F4F5;
+  vertical-align: center;
+  margin: 0px;
+  font-weight: 400;
+  margin-left: 5px;
+  padding: 5px;
+}
+
 
 .container-profile{
   margin:20px;

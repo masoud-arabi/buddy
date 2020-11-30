@@ -36,13 +36,13 @@
               <div>
 
                 <div class="job-card" onclick="window.toggleDescription(this)">
-                  <li class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
+                  <h1 class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
                   <%= job_per_connection.title %>
-                  </li>
+                  </h1>
+                  <h3>id: <%= job_per_connection.id %></h3>
                 </div>
 
                 <div class="job-desc-container" style="display:none;">
-                  <%= job_per_connection.id %>
                   <%= job_per_connection.description.html_safe %>
 
                   <div class="btn">
