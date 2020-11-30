@@ -35,7 +35,7 @@
 <h2><%= @user.values %></h2>
 
 
-<% @user.priorities.each do |priority| %>
+<% @user.priorities.order(position: :asc).each do |priority| %>
   <div class="priority_<%= priority.position %>">
     <h1>Priority n°<%= priority.position %></h1>
     <h2><%= priority.job_search %></h2>

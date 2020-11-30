@@ -8,16 +8,30 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    i = [1, 2, 3]
     priority_updated = false
     user_priority_params["priority"].values.each do |priority|
+      # priority.values.each do |variable|
+      #   variable.update(job_search)
+      # end
       if priority["id"] == "nil"
-        priority = Priority.new(priority)
-        priority.user = current_user
-        priority.save!
+        new_priority = Priority.new(
+          job_search: priority["job_search"],
+          industry: priority["industry"],
+          location: priority["location"],
+          position: i.slice!(0)
+        )
+        new_priority.user = current_user
+        new_priority.save!
         priority_updated = true
       else
-        new_priority = Priority.find(priority["id"])
-        new_priority.update(priority)
+        update_priority = Priority.find(priority["id"].to_i)
+        update_priority.job_search = priority["job_search"]
+        update_priority.industry = priority["industry"]
+        update_priority.location = priority["location"]
+        update_priority.position = i.slice!(0)
+
+        update_priority.save!
         priority_updated = true
       end
     end
