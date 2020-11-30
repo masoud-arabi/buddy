@@ -5,12 +5,12 @@
 
       <%= simple_form_for(@user, url: profiles_path) do |f| %>
         <%= f.input :photo, as: :file %>
-        <%= f.input :first_name %>
+        <%= f.input :first_name, autofocus: true%>
         <%= f.input :last_name %>
         <%= f.input :email %>
         <%#= f.email_field_with_label :email, autofocus: true, autocomplete: "email" %>
         <%= f.input :phone_number %>
-        <%= f.input :city_address %>
+        <%= f.input :city_address, input_html: {id: "edit_address"}%>
         <%#= f.input :country_select %>
         <%= f.input :background %>
         <div class="form-group">
