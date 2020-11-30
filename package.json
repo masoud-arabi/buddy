@@ -7,6 +7,8 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
+    "chartkick": "^3.2.1",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "places.js": "^1.19.0",
