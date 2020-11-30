@@ -39,21 +39,23 @@
               <option>Urban Planning</option>
             </select>
         </div>
-        <%= f.input :diploma %>
+        <div class="form-group">
+          <label for="user_diploma">Type of diploma</label>
+            <select class="form-control" >
+              <option>Associate’s degree</option>
+              <option>Bachelor’s degree</option>
+              <option>Graduate</option>
+              <option>Master’s degree</option>
+              <option>Doctoral degree</option>
+              <option>Professional degree</option>
+            </select>
+        </div>
         <div class="form-row">
           <div class="col">
             <%= f.input :start_date %>
           </div>
           <div class="col">
             <%= f.input :end_date %>
-          </div>
-        </div>
-
-
-        <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
           </div>
         </div>
 
