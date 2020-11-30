@@ -1,6 +1,7 @@
 .container-body {
   margin-top: 116px;
   width: 100%;
+  margin-bottom: 100px
   }
 
 img {
@@ -71,4 +72,12 @@ img {
 .job-card h1 {
   color: white;
   font-weight: 400;
+}
+
+.container-profile{
+  margin:20px;
+  margin-top: 50px;
+  padding:20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
