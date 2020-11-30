@@ -1,11 +1,14 @@
+<div class="container-messages">
+
 <h1>Chatting with <%= @chat_with_contact.first_name %></h1>
 
-<div id="conversation-main">
-  <div id="conversation-body">
+
     <%  @messages.each do |message| %>
-      <p><%= message.content %></p>
+      <div class="message-bubble">
+        <p><%= message.content %></p>
+      </div>
     <% end %>
-  </div>
+
 
   <%= simple_form_for([@conversation, @message] ) do |f| %>
     <%#= hidden_field_tag 'conversation_id', @conversation.id %>
@@ -13,3 +16,4 @@
     <%= f.submit %>
   <% end %>
 </div>
+
