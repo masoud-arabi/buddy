@@ -9,11 +9,17 @@
       </div>
     <% end %>
 
-
+<div class="container-message-edit">
   <%= simple_form_for([@conversation, @message] ) do |f| %>
     <%#= hidden_field_tag 'conversation_id', @conversation.id %>
     <%= f.input :content %>
-    <%= f.submit %>
+    <%= f.submit do %>
+    <i class="button-send" > send</i>
+    <% end %>
   <% end %>
 </div>
+</div>
 
+<%= button_tag type: 'submit', class: "button send" do %>
+      <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+  <% end %>

@@ -31,8 +31,16 @@
 .container-messages {
   background-color: #white;
   background-clip: border-box;
-
   margin: 10px 20px;
+    .simple_form {
+  display: flex;
+  div.input {
+    margin-bottom: 10px;
+    clear: both;
+    padding:5px;
+    /* Required for Webkit, but not for Gecko */
+  }
+}
 }
 
 .message-bubble {
@@ -45,4 +53,13 @@
     h1,h2,h3,p {
     color: white;
   }
+}
+
+.container-message-edit{
+  display: flex;
+
+}
+
+.button-send {
+  border-radius: 25px;
 }
