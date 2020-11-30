@@ -438,23 +438,23 @@ end
 
 puts "creating priorities"
 
-Priority.create!(
-  user: user_1,
-  job_search: "Product Owner",
-  position: 1
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Product Owner",
+#   position: 1
+#   )
 
-Priority.create!(
-  user: user_1,
-  job_search: "Front-end developer",
-  position: 2
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Front-end developer",
+#   position: 2
+#   )
 
-Priority.create!(
-  user: user_1,
-  job_search: "Back-end developer",
-  position: 3
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Back-end developer",
+#   position: 3
+#   )
 
 Priority.create!(
   user: user_2,

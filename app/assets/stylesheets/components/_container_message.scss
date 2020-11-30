@@ -1,0 +1,29 @@
+.container-conversation {
+  background-color: #2F4858;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+.container-conversation  {
+  h1, h2, h3 {
+  color: white;
+  text-decoration: none;
+  }
+}
+
+.container-conversation:hover  {
+  color: #2F4858;
+  border: 1px solid white;
+  background-color: white;
+  h1, h2, h3{
+    color: #2F4858;
+    text-decoration: none;
+  }
+}

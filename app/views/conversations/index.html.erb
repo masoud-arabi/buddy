@@ -1,6 +1,15 @@
+
+
 <% @conversations.each do |conversation| %>
-  <% chat_with_user = current_user == conversation.sender ? conversation.receiver : @conversation.sender %>
-  <% @chat_with_contact = Contact.find_by(user: chat_with_user) %>
-  <p>You and <%= @chat_with_contact.first_name %></p>
-  <%= link_to 'View conversation', conversation_path(conversation) %>
+  <div class="container-conversation">
+    <%= link_to  conversation_path(conversation) do %>
+
+      <% chat_with_user = current_user == conversation.sender ? conversation.receiver : @conversation.sender %>
+      <% @chat_with_contact = Contact.find_by(user: chat_with_user) %>
+      <h1><%= @chat_with_contact.first_name %> <%= @chat_with_contact.last_name %></h1>
+      <h3><%= @chat_with_contact.job_title%> @ <%= @chat_with_contact.company&.name%></h3>
+
+    <% end %>
+  </div>
 <%  end %>
+
