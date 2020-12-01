@@ -1,0 +1,17 @@
+.container-no-connection {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  align-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+
+  img{
+    width: 300px;
+    height: auto;
+    margin: 150px 0px;
+    display: flex;
+  }
+
+}
