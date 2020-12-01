@@ -5,7 +5,7 @@
     <%= link_to  conversation_path(conversation) do %>
 
       <% chat_with_user = current_user == conversation.sender ? conversation.receiver : conversation.sender %>
-      <% @chat_with_contact = Contact.find_by(user: chat_with_user) %>
+      <% chat_with_contact = Contact.find_by(user: chat_with_user) %>
       <h1><%= @chat_with_contact.first_name %> <%= @chat_with_contact.last_name %></h1>
       <h3><%= @chat_with_contact.job_title%> @ <%= @chat_with_contact.company&.name%></h3>
 
