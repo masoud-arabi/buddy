@@ -31,7 +31,8 @@
 .container-messages {
   background-color: #white;
   background-clip: border-box;
-  margin: 10px 20px;
+  margin: 10px 0px;
+  margin-bottom:150px;
     .simple_form {
   display: flex;
   div.input {
@@ -42,21 +43,49 @@
   }
 }
 }
+.container-messages h1{
+  text-align: center;
+}
+
 
 .message-bubble {
   background-color: #33658A;
   background-clip: border-box;
-  padding: 5px 5px 5px 5px;
-  margin: 10px 20px;
+  padding: 10px 5px 10px 5px;
+  margin-top: 10px;
+  margin-left: 38px;
   border-radius: 5px;
+  width:calc(100% - 38px);
   overflow-wrap: break-word;
+  opacity: 0.9;
     h1,h2,h3,p {
     color: white;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.message-bubble-other{
+  background-color: #F6AE2D;
+  background-clip: border-box;
+  padding: 10px 5px 10px 5px;
+  margin-top: 10px;
+  margin-right:38px;
+  width:calc(100% - 38px);
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  opacity: 0.9;
+    h1,h2,h3,p {
+    color: white;
+    font-size: 14px;
+    margin: 0;
   }
 }
 
 .container-message-edit{
   position:fixed;
+  background-color: #F3F4F5;
+
   bottom: 80px;
   width:100%;
   margin: 0 auto;
@@ -66,6 +95,7 @@
   }
   input{
     min-width: 300px;
+    margin-top:10px;
   }
 
 }
@@ -76,6 +106,7 @@
   height:50px;
   background-color: transparent;
   color:#33658A;
+  margin-top:5px;
 }
 
 
