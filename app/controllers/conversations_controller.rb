@@ -6,8 +6,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    chat_with_user = current_user == @conversation.sender ? @conversation.receiver : @conversation.sender
-    @chat_with_contact = Contact.find_by(user: chat_with_user)
+    @chat_with_user = current_user == @conversation.sender ? @conversation.receiver : @conversation.sender
     @messages = @conversation.messages
     @message = Message.new
   end
