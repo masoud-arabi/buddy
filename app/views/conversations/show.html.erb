@@ -1,15 +1,23 @@
-<h1>Chatting with <%= @chat_with_user.first_name %></h1>
+<div class="container-messages">
 
-<div id="conversation-main">
-  <div id="conversation-body">
-    <%  @messages.each do |message| %>
+  <h1>Chatting with <%= @chat_with_user.first_name %></h1>
+  <%  @messages.each do |message| %>
+    <div class="message-bubble">
       <p><%= message.content %></p>
+    </div>
+  <% end %>
+
+  <div class="container-message-edit">
+    <%= simple_form_for([@conversation, @message] ) do |f| %>
+      <%#= hidden_field_tag 'conversation_id', @conversation.id %>
+      <%= f.input :content %>
+      <%= f.submit do %>
+      <i class="button-send" > send</i>
+      <% end %>
     <% end %>
   </div>
-
-  <%= simple_form_for([@conversation, @message] ) do |f| %>
-    <%#= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
 </div>
+
+<%= button_tag type: 'submit', class: "button send" do %>
+  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+<% end %>

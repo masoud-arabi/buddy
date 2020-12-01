@@ -54,6 +54,7 @@ user_3 = User.create!(
 end
 
 
+
  puts "creating companies"
 
 ubisoft = Company.create!(
@@ -389,8 +390,12 @@ id = @array_contact.sample
   last_name: "Lapraye",
   contact_email: "maxime@gmail.com",
   user_id: user_3.id,
-  company: alithya
+
+  company: alithya,
+  start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
+  end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
+
 50.times do
   id = @array_contact.sample
   fn = Faker::Name.first_name
@@ -414,6 +419,11 @@ end
 
 puts "creating connections"
 
+connection_maxime = Connection.new
+      connection_maxime.user = user_1
+      connection_maxime.contact = contact_3
+      connection_maxime.save!
+
 User.all.each do |user|
   array = []
   i = rand(0..49)
@@ -435,6 +445,7 @@ connection_max.contact = contact_3
 connection_max.save!
 
 puts "creating priorities"
+
 
 Priority.create!(
   user: user_1,
