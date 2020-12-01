@@ -1,1 +1,15 @@
 <%= pie_chart @companies.group(:industry).count, { defer: true } %>
+
+<%= line_chart Job.group_by_week(:created_at).count, { defer: true } %>
+
+<%#= line_chart @jobs.map { |job|
+    {name: job.title, data: job.date_created.group_by_day(:created_at).count }, { defer: true }
+} %>
+
+<%#= line_chart @jobs.map { |job|
+    {name: job.company.industry, data: job.feats.group_by_day(:created_at).count
+, { defer: true } } %>
+
+<%#= line_chart Feat.group(:goal_id).group_by_day(:created_at).count %>
+
+<%= line_chart Company.industry.group(:job_id).group_by_day(:created_at).count, { defer: true } %>

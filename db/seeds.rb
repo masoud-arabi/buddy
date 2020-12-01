@@ -94,7 +94,7 @@ address: "418 Rue Saint-Sulpice, Montréal"
 
 absolunet = Company.create!(
 name: "Absolunet",
-industry: "Web Marketing",
+industry: "eCommerce",
 address: "4398 Boulevard Saint-Laurent, Montréal"
 )
 
@@ -135,7 +135,7 @@ puts "creating jobs"
   <li>Good interpersonal skills.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>HTML</li>
   <li>CSS</li>
@@ -182,7 +182,7 @@ puts "creating jobs"
   <li>Willingness to sit at desk for extended periods.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>Java</li>
   <li>PHP</li>
@@ -227,7 +227,7 @@ puts "creating jobs"
   <li>Ability to multi-task and work under pressure.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>Scrum Management</li>
   <li>Analyse</li>
@@ -279,7 +279,7 @@ puts "creating jobs"
   <li>Excellent communication skills.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>Adobe Photoshop</li>
   <li>Adobe Illustrator</li>
@@ -329,7 +329,7 @@ puts "creating jobs"
   <li>High-level written and verbal communication skills.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>Big Data</li>
   <li>SQL</li>
@@ -375,7 +375,7 @@ puts "creating jobs"
   <li>Budget management experience.</li>
   </ul>
   </div>",
-  date_created: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
   skills: "<ul>
   <li>Project Management</li>
   <li>Communication</li>
