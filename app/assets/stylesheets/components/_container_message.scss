@@ -55,6 +55,18 @@
   }
 }
 
+.message-bubble-other{
+  background-color: #F6AE2D;
+  background-clip: border-box;
+  padding: 5px 5px 5px 5px;
+  margin: 10px 20px;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+    h1,h2,h3,p {
+    color: white;
+  }
+}
+
 .container-message-edit{
   position:fixed;
   bottom: 80px;
