@@ -1,28 +1,21 @@
 class IdeasController < ApplicationController
-  # def match_priorities_jobs?(priority_job_search, job_title)
-  #   priority_job_search == job_title
-  # end
 
-  # def industry_present_job?(priority_industry, company_industry)
-  #   priority_industry == company_industry
-  # end
+  def match_priorities_jobs?(priority_job_search, job_title)
+    priority_job_search == job_title
+  end
 
   def map
     @companies = Company.all
     @user = current_user
-    @jobs = Job.all
+    jobs = Job.all
+    @jobs_priorities = []
+    @user.priorities.each do |priority|
+      jobs.each do |job|
+        if match_priorities_jobs?(priority.job_search, job.title)
+          @jobs_priorities.push(job)
+        end
+      end
+    end
+    @jobs_priorities
   end
 end
-
-    # @ideas_hash = {}
-    # @ideas_array = []
-    # @user.priorities.each do |priority|
-    #   @companies.each do |company|
-    #     if match_priorities_jobs?(company.industry, priority.industry)
-    #       @ideas_array.push(priority.industry)
-    #     end
-    #     @ideas.store("#{priority.industry}", @ideas_array[priority.industry].count)
-    #   end
-    # end
-    # @ideas_hash
-    # raise

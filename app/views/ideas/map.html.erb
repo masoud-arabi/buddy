@@ -1,15 +1,31 @@
-<%= pie_chart @companies.group(:industry).count, { defer: true } %>
+ <div class="container">
 
-<%= line_chart Job.group_by_week(:created_at).count, { defer: true } %>
+  <div id="pie-chart-industry">
+    <h1>Opening positions per industry for the last 3 weeks</h1>
+    <% pie_data = Job.joins(:company).group(:industry).count %>
+    <%= pie_chart pie_data, { defer: true,
+    colors: Job.build_color_pie_chart(pie_data) } %>
+  </div>
+  <div id="area-chart-industry">
+    <h1>Evolution of job opening positions per industry</h1>
+    <%= area_chart Job.joins(:company).group(:industry).group_by_week(:created_at).count, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false,
+    colors: ["#55B49E", "#162a3b", "#33658A", "#88b2d3", "#9CD3C6"] } %>
+  </div>
+  <div id="pie-chart-job-title">
+    <h1>Opening positions per job title for the last 3 weeks</h1>
+    <%= pie_chart Job.group(:title).count, { defer: true,
+    colors: ["#F6AE2D", "#ED254E", "#2F4858"] } %>
+  </div>
+  <div id="area-chart-total">
+    <h1>Evolution of prioritie's job opening positions</h1>
+    <%= area_chart @user.priorities.group(:job_search).group_by_week(:created_at).count, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false, colors: ["#F6AE2D", "#ED254E", "#2F4858"] } %>
+  </div>
+  <div id="area-chart-total">
+    <h1>Evolution of total job opening positions</h1>
+    <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false, colors: ["#55B49E"] } %>
+  </div>
+</div>
 
-<%#= line_chart @jobs.map { |job|
-    {name: job.title, data: job.date_created.group_by_day(:created_at).count }, { defer: true }
-} %>
-
-<%#= line_chart @jobs.map { |job|
-    {name: job.company.industry, data: job.feats.group_by_day(:created_at).count
-, { defer: true } } %>
-
-<%#= line_chart Feat.group(:goal_id).group_by_day(:created_at).count %>
-
-<%= line_chart Company.industry.group(:job_id).group_by_day(:created_at).count, { defer: true } %>
