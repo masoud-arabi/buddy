@@ -4,7 +4,10 @@
       <%= cl_image_tag current_user.photo.key, class: "buddy-avatar" %>
     <% end %>
   <% else %>
-    <%= image_tag "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png", class: "buddy-avatar" %>
+    <%= link_to profiles_path(current_user) do %>
+    <%= image_tag "https://res.cloudinary.com/maximelpy/image/upload/v1606857555/buddy/man_2_tnl28l.png", class: "buddy-avatar" %>
+    <% end %>
+
   <% end %>
 
   <img src="https://res.cloudinary.com/maximelpy/image/upload/v1606393471/buddy_logo_scetxt.png" alt="" class="buddy-logo">
