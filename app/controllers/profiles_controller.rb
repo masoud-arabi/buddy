@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
       :field_of_studies,
       :start_date,
       :end_date,
-      :desciption,
+      :description,
       :values
     )
   end

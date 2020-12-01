@@ -1,10 +1,37 @@
 .btn {
-  width: 100%;
+  width: 50%;
   border-radius: 5px;
-  background-color: #ED254E;
+  background-color: #55B49E;
+  margin-top: 15px;
+  margin-left: 77px;
 }
 
 .btn a {
   text-decoration: none;
   color: white;
+}
+
+
+.button-edit{
+  border: none;
+  width:50px;
+  height:50px;
+  background-color: transparent;
+  color:#33658A;
+  float: right;
+}
+
+#edit-photo{
+  width: 50%;
+  border-radius: 5px;
+  background-color: #ED254E;
+}
+
+#edit_address{
+  border-radius: 10px;
+  border-color: #55B49E;
+}
+#edit-form-box{
+   border-radius: 10px;
+  border-color: #55B49E;
 }

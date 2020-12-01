@@ -95,11 +95,22 @@ img {
 
 .container-profile{
   margin:20px;
-  margin-top: 50px;
+  margin-top: 30px;
   padding:20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
+  line-height: 1.75;
 }
+
+.container-priority{
+  margin:20px;
+  margin-top: 20px;
+  padding:20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  line-height: 1.5rem;
+}
+
 
 .job-desc-container{
   width: 100%;
