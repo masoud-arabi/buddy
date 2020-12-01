@@ -43,7 +43,7 @@
 
               <div>
 
-                <div class="job-card" onclick="window.toggleDescription(this)">
+                <div class="job-card job_priority_<%= current_user.match_priority_to_job(job_per_connection.title) %>" onclick="window.toggleDescription(this)">
                   <h1 class="priority_<%= current_user.match_priority_to_job(job_per_connection.title) %> ">
                   <%= job_per_connection.title %>
                   </h1>
