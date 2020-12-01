@@ -9,7 +9,7 @@
 </div>
 
   <div class="container-message-edit">
-    <%= simple_form_for([@conversation, @message] ) do |f| %>
+    <%= simple_form_for([@conversation, @message], html: { autocomplete: 'off' }  )do |f| %>
       <%#= hidden_field_tag 'conversation_id', @conversation.id %>
       <%= f.input :content, label: false %>
       <%= button_tag type: 'submit', class: "button-send" do %>
