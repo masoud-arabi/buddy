@@ -55,7 +55,7 @@ end
 
 
 
-user_two = User.create!(
+user_3 = User.create!(
   email: "maxime@gmail.com",
   password: "123456789"
 )
@@ -390,13 +390,16 @@ puts "creating contacts"
 
 @array_contact = [*User.first.id..User.last.id]
 id = @array_contact.sample
- contact_two = Contact.create!(
+ contact_3 = Contact.create!(
   first_name: "Maxime",
   last_name: "Lapraye",
   contact_email: "maxime@gmail.com",
-  user_id: user_two.id,
-  company: alithya
+  user_id: user_3.id,
+  company: alithya,
+  start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
+  end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
+
 50.times do
   id = @array_contact.sample
   fn = Faker::Name.first_name
@@ -420,6 +423,11 @@ end
 
 puts "creating connections"
 
+connection_maxime = Connection.new
+      connection_maxime.user = user_1
+      connection_maxime.contact = contact_3
+      connection_maxime.save!
+
 User.all.each do |user|
   array = []
   i = rand(0..49)
@@ -438,23 +446,23 @@ end
 
 puts "creating priorities"
 
-Priority.create!(
-  user: user_1,
-  job_search: "Product Owner",
-  position: 1
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Product Owner",
+#   position: 1
+#   )
 
-Priority.create!(
-  user: user_1,
-  job_search: "Front-end developer",
-  position: 2
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Front-end developer",
+#   position: 2
+#   )
 
-Priority.create!(
-  user: user_1,
-  job_search: "Back-end developer",
-  position: 3
-  )
+# Priority.create!(
+#   user: user_1,
+#   job_search: "Back-end developer",
+#   position: 3
+#   )
 
 Priority.create!(
   user: user_2,
