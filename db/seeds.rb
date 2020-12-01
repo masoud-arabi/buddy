@@ -32,19 +32,19 @@ puts "creating users"
 user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
+  first_name: "Alexandre",
+  last_name: "Coeffet"
 )
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
 user_1.save!
 
-user_2 = User.new(
-  email: "alexandre.coeffet@hec.ca",
-  password: "123456",
+user_3 = User.create!(
+  email: "maxime@gmail.com",
+  password: "123456789",
+  first_name: "Maxime",
+  last_name: "Lapraye"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-user_2.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
-user_2.save!
-
 
 10.times do
   User.create!(
@@ -54,11 +54,6 @@ user_2.save!
 end
 
 
-
-user_3 = User.create!(
-  email: "maxime@gmail.com",
-  password: "123456789"
-)
 
  puts "creating companies"
 
@@ -395,6 +390,7 @@ id = @array_contact.sample
   last_name: "Lapraye",
   contact_email: "maxime@gmail.com",
   user_id: user_3.id,
+
   company: alithya,
   start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
@@ -443,41 +439,28 @@ User.all.each do |user|
   end
 end
 
+connection_max = Connection.new
+connection_max.user = user_1
+connection_max.contact = contact_3
+connection_max.save!
 
 puts "creating priorities"
 
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Product Owner",
-#   position: 1
-#   )
-
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Front-end developer",
-#   position: 2
-#   )
-
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Back-end developer",
-#   position: 3
-#   )
 
 Priority.create!(
-  user: user_2,
+  user: user_1,
   job_search: "Product Owner",
   position: 1
   )
 
 Priority.create!(
-  user: user_2,
+  user: user_1,
   job_search: "Front-end developer",
   position: 2
   )
 
 Priority.create!(
-  user: user_2,
+  user: user_1,
   job_search: "Back-end developer",
   position: 3
   )

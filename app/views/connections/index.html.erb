@@ -23,7 +23,11 @@
             <div class="card-connection">
               <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
               <div class="card-connection-details">
-                <h1><%= contact&.first_name%> <%= contact&.last_name%></h1>
+                <% if contact&.is_a_user? %>
+                <h1><%= link_to "#{contact&.first_name} #{contact&.last_name}", profiles_path(contact.user_id)%></h1>
+                <% else %>
+                <h1><% "#{contact&.first_name} #{contact&.last_name}"%></h1>
+                <%end %>
                 <h2><%= contact&.job_title%> @ <%= contact&.company&.name%></h2>
                 <% connection = Connection.find_by(contact: contact) %>
                 <h3><%= connection&.duration_work %></h3>
