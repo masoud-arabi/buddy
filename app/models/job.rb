@@ -33,14 +33,25 @@ class Job < ApplicationRecord
   end
 
   def self.by_user_priorities(user)
-    # user == current_user
     query = <<-SQL
-      SELECT * FROM jobs
-      WHERE id = ?
+      select distinct jobs.* from jobs
+      join companies on jobs.company_id = companies.id
+      join contacts on companies.id = contacts.company_id
+      join connections on contacts.id = connections.contact_id
+      join users on connections.user_id = users.id
+      join priorities on users.id = priorities.user_id
+      where priorities.user_id = #{user.id}
     SQL
 
-    jobs = ActiveRecord::Base.connection.execute(query, 1)
+    jobs = ActiveRecord::Base.connection.execute(query)
+    # jobs_array = {}
+    # jobs.to_a.each do |job|
+    #   jobs_array << ["#{job["title"]}"] = "#{job["created_at"]}"
+    # end
+    return jobs.to_a
+  end
 
-    return jobs
+  def self.build_color_priorities_area_chart
   end
 end
+["#F6AE2D", "#ED254E", "#2F4858"]

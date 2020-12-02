@@ -4,7 +4,6 @@
 <% buddies = 0 %>
 <% array_opportunities = [] %>
 
-
 <% content_for(:main_page_connections) do %>
   <div class="connections">
     <% if @connections.count != 0 %>
@@ -15,7 +14,6 @@
           <% !((seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || (current_user.match_priority_to_job(job.title) == false && !current_user.matches_at_least_one_job(connection.company.jobs))) %>
         <% end %>
 
-
         <% connection.company.jobs.each do |job| %>
           <% array_opportunities.push(job.id) if current_user.match_priority_to_job(job.title)%>
           <% next if previous_contact == contact %>
@@ -25,14 +23,14 @@
                 <div class="card-connection">
                   <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
                   <div class="card-connection-details">
-                    <% if contact&.is_a_user? %>
-                      <h1><%= link_to "#{contact&.first_name} #{contact&.last_name}", profiles_path(contact.user_id)%></h1>
+                    <% if contact.is_a_user? %>
+                      <h1><%= link_to "#{contact.first_name} #{contact.last_name}", profiles_path(contact.user_id)%></h1>
                     <% else %>
-                      <h1><%= "#{contact&.first_name} #{contact&.last_name}" %></h1>
+                      <h1><%= "#{contact.first_name} #{contact.last_name}" %></h1>
                     <% end %>
-                    <h2><%= contact&.job_title%> @ <%= contact&.company&.name%></h2>
+                    <h2><%= contact.job_title%> @ <%= contact.company.name%></h2>
                     <% connection = Connection.find_by(contact: contact) %>
-                    <h3><%= connection&.duration_work %></h3>
+                    <h3><%= connection.duration_work %></h3>
                     <% buddies += 1 %>
                   </div>
                 </div>
