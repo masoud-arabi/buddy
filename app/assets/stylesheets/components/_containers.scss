@@ -93,6 +93,14 @@ img {
 }
 
 
+.container-profile{
+  margin:20px;
+  margin-top: 30px;
+  padding:20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  line-height: 1.75;
+}
 
 .job_priority_1 {
   border-left: 3px solid #F6AE2D;
@@ -106,15 +114,23 @@ img {
   border-left: 3px solid #2F4858;
 }
 
-
-.container-profile{
-  margin:20px;
-  margin-top: 30px;
-  padding:20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  line-height: 1.75;
+.priority_1{
+  h1, h2{
+  color:#F6AE2D;
+  }
 }
+.priority_2{
+  h1, h2{
+  color:#ED254E;
+  }
+}
+.priority_3{
+  h1, h2{
+  color:#2F4858;
+  }
+}
+
+
 
 .container-priority{
   margin:20px;
