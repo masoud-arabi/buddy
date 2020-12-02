@@ -1,0 +1,53 @@
+ <div class="container">
+
+  <div id="pie-chart-industry">
+    <h1>Actual openned positions per industry</h1>
+    <% pie_data = Job.joins(:company).group(:industry).count %>
+    <%= pie_chart pie_data, { defer: true,
+    colors: Job.build_color_pie_chart(pie_data) } %>
+    <p></p>
+  </div>
+
+  <div id="area-chart-industry">
+    <h1>Evolution of job opening positions per industry</h1>
+    <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
+    <%= area_chart area_data, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false,
+    colors: Job.build_color_area_chart(area_data) } %>
+    <p></p>
+  </div>
+
+<% @colors_priorities = {} %>
+  <% current_user.priorities.each do |priority| %>
+    <% if priority.position == 1 %>
+      <% @colors_priorities["#{priority.job_search}"] = "#F6AE2D" %>
+    <% elsif priority.position == 2 %>
+      <% @colors_priorities["#{priority.job_search}"] = "#ED254E" %>
+    <% elsif priority.position == 3 %>
+      <% @colors_priorities["#{priority.job_search}"] = "#2F4858" %>
+    <% end %>
+  <% end %>
+
+  <div id="pie-chart-job-title">
+    <h1>Actual openned positions per job title</h1>
+    <% pie_data_priorities = Job.group(:title).count %>
+    <%= pie_chart pie_data_priorities, { defer: true,
+    colors: Job.build_color_priorities_pie_chart(pie_data_priorities, @colors_priorities) } %>
+    <p></p>
+  </div>
+
+  <div id="area-chart-total">
+    <h1>Evolution of prioritie's job opening positions</h1>
+    <%= area_chart @user.priorities.group(:job_search).group_by_week(:created_at).count, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false, colors: ["#F6AE2D", "#ED254E", "#2F4858"] } %>
+    <p></p>
+  </div>
+
+  <div id="area-chart-total">
+    <h1>Evolution of total job opening positions</h1>
+    <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
+    xtitle: "Time", ytitle: "Job Openings", points: false, colors: ["#55B49E"] } %>
+    <p></p>
+  </div>
+</div>
+

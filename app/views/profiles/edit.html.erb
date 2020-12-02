@@ -63,7 +63,6 @@
         <h3>Priorities</h3>
         <p>Below you can define <strong>3 job search priorities</strong>. It will
         then filter the contacts list with the right industry, job title and location.</p>
-        <%# @user.priorities.each do |priority| %>
         <% user_priorities = current_user.priorities.to_a %>
         <% 3.times do |p_index| %>
           <% priority = user_priorities.slice(p_index) %>
