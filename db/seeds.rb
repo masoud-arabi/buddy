@@ -394,9 +394,30 @@ id = @array_contact.sample
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
 
-50.times do
+25.times do
   id = @array_contact.sample
-  fn = Faker::Name.first_name
+  fn = Faker::Name.female_first_name
+  sn = Faker::Name.last_name
+  contact = Contact.new(
+    first_name: fn,
+    last_name: sn,
+    job_title: ["Product Owner", "Front-end developer", "Back-end developer",
+    "Web Designer", "Project Manager", "Data Analyst", "Full-stack developer",
+    "UX Designer", "Scrum Master", "Data Scientist", "Cloud Engineers"].sample,
+    contact_email: "#{fn}.#{sn}@gmail.com",
+    start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
+    end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample,
+    company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
+    user_id: [id, nil].sample
+  )
+  contact.save!
+  number = @array_contact.index(id).to_i
+  @array_contact.slice!(number)
+end
+
+25.times do
+  id = @array_contact.sample
+  fn = Faker::Name.male_first_name
   sn = Faker::Name.last_name
   contact = Contact.new(
     first_name: fn,
