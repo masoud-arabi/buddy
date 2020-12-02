@@ -27,8 +27,6 @@ Conversation.destroy_all
 puts "creating users"
 
 
-
-
 user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
@@ -82,7 +80,7 @@ address: "94 Avenue Laurier Ouest, Montréal"
 
 alithya = Company.create!(
 name: "Alithya",
-industry: "Software Consulting",
+industry: "Consulting",
 address: "1100 Boulevard Robert-Bourassa, Montréal"
 )
 
