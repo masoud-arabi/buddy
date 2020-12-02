@@ -1,0 +1,127 @@
+.container-conversation {
+  background-color: #2F4858;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+.container-conversation  {
+  h1, h2, h3 {
+  color: white;
+  text-decoration: none;
+  }
+}
+
+.container-conversation:hover  {
+  color: #2F4858;
+  border: 1px solid white;
+  background-color: white;
+  h1, h2, h3{
+    color: #2F4858;
+    text-decoration: none;
+  }
+}
+
+.container-messages {
+  background-color: #white;
+  background-clip: border-box;
+  margin: 10px 0px;
+  margin-bottom:150px;
+    .simple_form {
+  display: flex;
+  div.input {
+    margin-bottom: 10px;
+    clear: both;
+    padding:5px;
+    /* Required for Webkit, but not for Gecko */
+  }
+}
+}
+.container-messages h1{
+  text-align: center;
+}
+
+
+.message-bubble {
+  background-color: #33658A;
+  background-clip: border-box;
+  padding: 10px 5px 10px 5px;
+  margin-top: 10px;
+  margin-left: 38px;
+  border-radius: 5px;
+  width:calc(100% - 38px);
+  overflow-wrap: break-word;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+    h1,h2,h3,p {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.message-bubble-other{
+  background-color: white;
+  background-clip: border-box;
+  padding: 10px 5px 10px 5px;
+  margin-top: 10px;
+  margin-right:38px;
+  width:calc(100% - 38px);
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  opacity: 0.9;
+  border:1px solid white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    h1,h2,h3,p {
+    color: #33658A;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.container-message-edit{
+  position:fixed;
+  background-color: #F3F4F5;
+  bottom: 80px;
+  width:100%;
+  margin: 0 auto;
+  form {
+  display: flex;
+  align-items: center;
+  }
+  input{
+    min-width: 300px;
+    margin-top:10px;
+  }
+
+}
+
+.button-send {
+  border: none;
+  width:50px;
+  height:50px;
+  background-color: transparent;
+  color:#33658A;
+  margin-top:5px;
+}
+
+
+#new_message{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+

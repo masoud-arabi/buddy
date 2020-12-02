@@ -1,15 +1,36 @@
-<h1>Chatting with <%= @chat_with_contact.first_name %></h1>
+<div class="container-messages">
 
-<div id="conversation-main">
-  <div id="conversation-body">
+  <h1>Connected to <%= @chat_with_user.first_name %></h1>
+
+
     <%  @messages.each do |message| %>
-      <p><%= message.content %></p>
+
+      <% if message.user_id == current_user.id %>
+
+        <div class="message-bubble">
+          <p> <strong>You:</strong>  <%= message.content %></p>
+        </div>
+
+      <% else %>
+
+       <div class="message-bubble-other">
+         <p> <strong><%= @chat_with_user.first_name %>:</strong>  <%= message.content %></p>
+        </div>
+
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="container-message-edit">
+    <%= simple_form_for([@conversation, @message], html: { autocomplete: 'off' }  )do |f| %>
+      <%#= hidden_field_tag 'conversation_id', @conversation.id %>
+      <%= f.input :content, label: false %>
+      <%= button_tag type: 'submit', class: "button-send" do %>
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      <% end %>
     <% end %>
   </div>
 
-  <%= simple_form_for([@conversation, @message] ) do |f| %>
-    <%#= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
-</div>
+
+
+

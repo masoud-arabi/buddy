@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <% if current_page?(root_path) %>
+    <div class="container-body-home">
+     <%= yield %>
+    </div>
+    <% else %>
     <%= render 'shared/buddy_navbar' %>
     <%= render 'shared/flashes' %>
      <div class="container-body">
@@ -19,5 +24,6 @@
      <%= yield :charts_js %>
      </div>
     <%= render 'shared/buddy_footer' %>
+    <% end  %>
   </body>
 </html>
