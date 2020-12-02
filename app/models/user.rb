@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :priorities, dependent: :destroy
   has_many :contacts
+  has_one_attached :photo
 
   def conversations
     sender_conversations.or(receiver_conversations)
   end
 
-  has_one_attached :photo
 
   def match_priority_to_job(job_title)
     self.priorities.each do |priority|
