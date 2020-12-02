@@ -26,7 +26,7 @@ class Job < ApplicationRecord
         colors_priorities[job.first]
       else
         i += 1
-        ["#B4DAD2", "#B4DAD2", "#B4DAD2"][i]
+        ["#B4DAD2", "#B4DAD2", "#B4DAD2", "#B4DAD2", "#B4DAD2", "#B4DAD2"][i]
       end
     end
     return priorities_pie
