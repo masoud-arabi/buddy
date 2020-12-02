@@ -394,6 +394,8 @@ id = @array_contact.sample
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
 
+female_counter = 0
+
 25.times do
   id = @array_contact.sample
   fn = Faker::Name.female_first_name
@@ -410,10 +412,18 @@ id = @array_contact.sample
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
     user_id: [id, nil].sample
   )
+
+  file = URI.open("https://randomuser.me/api/portraits/med/women/#{female_counter}.jpg")
+  contact.photo.attach(io: file, filename: "#{fn}.png", content_type: 'image/png')
+
   contact.save!
   number = @array_contact.index(id).to_i
   @array_contact.slice!(number)
+  female_counter += 1
 end
+
+
+male_counter = 0
 
 25.times do
   id = @array_contact.sample
@@ -431,9 +441,15 @@ end
     company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample,
     user_id: [id, nil].sample
   )
+
+  file = URI.open("https://randomuser.me/api/portraits/med/men/#{male_counter}.jpg")
+  contact.photo.attach(io: file, filename: "#{fn}.png", content_type: 'image/png')
+
+
   contact.save!
   number = @array_contact.index(id).to_i
   @array_contact.slice!(number)
+  male_counter += 1
 end
 
 puts "creating connections"
