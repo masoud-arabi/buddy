@@ -39,7 +39,8 @@
   <div id="area-chart-total">
     <h1>Evolution of prioritie's job opening positions</h1>
     <%= area_chart @user.priorities.group(:job_search).group_by_week(:created_at).count, { defer: true,
-    xtitle: "Time", ytitle: "Job Openings", points: false, colors: ["#F6AE2D", "#ED254E", "#2F4858"] } %>
+    xtitle: "Time", ytitle: "Job Openings", points: false,
+    colors: ["#F6AE2D", "#ED254E", "#2F4858"] } %>
     <p></p>
   </div>
 
