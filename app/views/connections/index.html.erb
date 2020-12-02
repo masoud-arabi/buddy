@@ -95,15 +95,13 @@
 
 
 <% content_for :opportunities_buddies do %>
-  <div>Opportunities
-  <p><%= array_opportunities.uniq.count %></p></div>
+  <div class="container-title-desc">
+  <p> You have <strong><%= array_opportunities.uniq.count %></strong>  opportunities with <strong><%= buddies %></strong>  Buddies! </p></div>
 
-  <div>Buddies
-  <p><%= buddies %></p></div>
 <% end %>
 
 
-<h1 id="title">  Connect to your network.</h1>
+<!-- <h1 id="title">  Connect to your network.</h1> -->
 
 <%= yield(:opportunities_buddies) %>
 <%= yield(:main_page_connections) %>
