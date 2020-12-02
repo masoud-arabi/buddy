@@ -52,7 +52,7 @@
         </div>
         <h2><%= f.input :description, input_html: {id: "edit-form-box"} %></h2>
         <h2><%= f.input :values, input_html: {id: "edit-form-box"} %></h2>
-        <%= f.button :submit, 'Update Profile', class: "btn btn-primary" %>
+        <%= f.submit class: "button-update" %>
       </div>
       <div class="container-profile">
         <% i = 0 %>
@@ -75,7 +75,7 @@
             </div>
           <% end %>
         <% end %>
-        <%= f.button :submit, 'Update Priorities', class: "btn btn-primary" %>
+        <%= f.submit  class: "btn btn-primary" %>
       <% end %>
 
   </div>
