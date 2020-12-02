@@ -51,10 +51,11 @@
 
       <div class="form-row">
         <div class="col">
-          <h2><%= f.input :start_date, as: :date, html5: true, input_html: {id: "edit-form-box"} %></h2>
+          <h2><%= f.input :start_date, as: :date, html5: true, input_html: { id: "edit-form-box", value: f.object.start_date } %></h2>
         </div>
         <div class="col">
-          <h2><%= f.input :end_date, as: :date, html5: true, input_html: {id: "edit-form-box"} %></h2>
+          <h2><%= f.input :end_date, as: :date, html5: true, input_html: { id: "edit-form-box", value: f.object.end_date } %></h2>
+          <h2><%#= f.date_field :end_date, as: :date, value: f.object.end_date, html5: true, input_html: {id: "edit-form-box"} %></h2>
         </div>
       </div>
 

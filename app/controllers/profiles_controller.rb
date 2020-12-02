@@ -5,9 +5,11 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = current_user
+
   end
 
   def update
+    @user = current_user
     i = [1, 2, 3]
     priority_updated = false
     user_priority_params["priority"].values.each do |priority|
@@ -35,7 +37,7 @@ class ProfilesController < ApplicationController
         priority_updated = true
       end
     end
-    if current_user.update(user_params) || priority_updated
+    if @user.update(user_params) || priority_updated
       redirect_to profiles_path
     else
       render :edit
