@@ -32,7 +32,7 @@ img {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     padding-left: 40px;
     margin-left: 40px;
     margin-top: 10px;
@@ -73,7 +73,7 @@ img {
   display: flex;
   background-color: white;
   // border: 1px solid $brand-color;
-  border-radius: 3px;
+  border-radius: 3px 0px 0px 3px;
   padding-left: 20px;
   margin-top: 3px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
