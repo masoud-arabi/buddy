@@ -1,88 +1,90 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-sm-6" >
-      <h1>Update your profile</h1>
+<div>
+<div class="container-profile">
+    <h1 class="head">Edit your profile</h1>
+    <%= simple_form_for(@user, url: profiles_path) do |f| %>
+      <%= f.input :photo, as: :file %>
+      <h2><%= f.input :first_name, autofocus: true, input_html: {id: "edit-form-box"}%></h2>
 
-      <%= simple_form_for(@user, url: profiles_path) do |f| %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :first_name, autofocus: true%>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%#= f.email_field_with_label :email, autofocus: true, autocomplete: "email" %>
-        <%= f.input :phone_number %>
-        <%= f.input :city_address, input_html: {id: "edit_address"}%>
-        <%#= f.input :country_select %>
-        <%= f.input :background %>
-        <div class="form-group">
-          <label for="user_field_of_studies">Field of studies</label>
-            <select class="form-control" >
-              <option>Aeronautics and Aviation Science</option>
-              <option>Anthropology</option>
-              <option>Art</option>
-              <option>Business Administration</option>
-              <option>Chemistry</option>
-              <option>Economics</option>
-              <option>Education</option>
-              <option>Engineering</option>
-              <option>Environmental Science and Health</option>
-              <option>Journalism</option>
-              <option>Music</option>
-              <option>Nursing</option>
-              <option>Oceanography</option>
-              <option>Pharmacy</option>
-              <option>Photography</option>
-              <option>Physical Therapy</option>
-              <option>Political Science and International Relations</option>
-              <option>Psychology</option>
-              <option>Public Relations and Administration</option>
-              <option>Statistics</option>
-              <option>Urban Planning</option>
-            </select>
+      <h2><%= f.input :last_name , input_html: {id: "edit-form-box"}%></h2>
+
+      <h2><%= f.input :email , input_html: {id: "edit-form-box"}%></h2>
+
+      <h2><%= f.input :phone_number , input_html: {id: "edit-form-box"}%></h2>
+
+      <h2><%= f.input :city_address, input_html: {id: "edit_address"}%></h2>
+
+      <h2><%= f.input :background , input_html: {id: "edit-form-box"}%></h2>
+
+      <h2><%= f.input :field_of_studies, input_html: {id: "edit-form-box"}, priority: [ "Engineering" ], collection: [ "Aeronautics and Aviation Science",
+          "Aeronautics and Aviation Science",
+          "Anthropology",
+          "Art",
+          "Business Administration",
+          "Chemistry",
+          "Economics",
+          "Education",
+          "Engineering",
+          "Environmental Science and Health",
+          "Journalism",
+          "Music",
+          "Nursing",
+          "Oceanography",
+          "Pharmacy",
+          "Photography",
+          "Physical Therapy",
+          "Political Science and International Relations",
+          "Psychology",
+          "Public Relations and Administration",
+          "Statistics",
+          "Urban Planning"
+          ]%>
+      </h2>
+
+      <h2><%= f.input :diploma, input_html: {id: "edit-form-box"}, priority: [ "Graduate" ], collection: [ "Associate’s degree",
+          "Bachelor’s degree",
+          "Graduate",
+          "Master’s degree",
+          "Doctoral degree",
+          "Professional degree"
+          ]%>
+      </h2>
+
+      <div class="form-row">
+        <div class="col">
+          <h2><%= f.input :start_date, as: :date, html5: true, input_html: { id: "edit-form-box", value: f.object.start_date } %></h2>
         </div>
-        <div class="form-group">
-          <label for="user_diploma">Type of diploma</label>
-            <select class="form-control" >
-              <option>Associate’s degree</option>
-              <option>Bachelor’s degree</option>
-              <option>Graduate</option>
-              <option>Master’s degree</option>
-              <option>Doctoral degree</option>
-              <option>Professional degree</option>
-            </select>
+        <div class="col">
+          <h2><%= f.input :end_date, as: :date, html5: true, input_html: { id: "edit-form-box", value: f.object.end_date } %></h2>
+          <h2><%#= f.date_field :end_date, as: :date, value: f.object.end_date, html5: true, input_html: {id: "edit-form-box"} %></h2>
         </div>
-        <div class="form-row">
-          <div class="col">
-            <%= f.input :start_date, as: :date, html5: true %>
+      </div>
+
+      <h2><%= f.input :description, input_html: {id: "edit-form-box"} %></h2>
+
+      <h2><%= f.input :values, input_html: {id: "edit-form-box"} %></h2>
+      </br>
+      </br>
+
+      <% i = 0 %>
+      <h1 class="head">Priorities</h1>
+      <p style="text-align: center;">Below you can define <strong>3 job search priorities</strong>. It will
+      filter the contacts list with the right industry, job title and location.</p>
+      <% user_priorities = current_user.priorities.to_a %>
+      <% 3.times do |p_index| %>
+        <% priority = user_priorities.slice(p_index) %>
+        <%= f.simple_fields_for :priorities do |c| %>
+          <% i += 1 %>
+          <div class="priority_<%= i %>">
+              <h5>Priority n° <%= i %></h5>
+              <%= c.input :job_search, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][job_search]", value: priority ? priority.job_search : "" } %>
+              <%= c.input :industry, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][industry]", value: priority ? priority.industry : "" } %>
+              <%= c.input :location, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][location]", value: priority ? priority.location : "" } %>
+              <%= hidden_field("user[priority][prio_#{i}]", "id", value: priority ? priority.id : "nil" ) %>
           </div>
-          <div class="col">
-            <%= f.input :end_date, as: :date, html5: true %>
-          </div>
-        </div>
-
-        <% i = 0 %>
-        <h3>Priorities</h3>
-        <p>Below you can define <strong>3 job search priorities</strong>. It will
-        then filter the contacts list with the right industry, job title and location.</p>
-        <% user_priorities = current_user.priorities.to_a %>
-        <% 3.times do |p_index| %>
-          <% priority = user_priorities.slice(p_index) %>
-          <%= f.simple_fields_for :priorities do |c| %>
-
-            <% i += 1 %>
-            <div class="priority_<%= i %>">
-                <h5><%= i %></h5>
-                <%= c.input :job_search, input_html: { name: "user[priority][prio_#{i}][job_search]", value: priority ? priority.job_search : "" } %>
-                <%= c.input :industry, input_html: { name: "user[priority][prio_#{i}][industry]", value: priority ? priority.industry : "" } %>
-                <%= c.input :location, input_html: { name: "user[priority][prio_#{i}][location]", value: priority ? priority.location : "" } %>
-                <%= hidden_field("user[priority][prio_#{i}]", "id", value: priority ? priority.id : "nil" ) %>
-            </div>
-          <% end %>
         <% end %>
-        <%= f.input :description %>
-        <%= f.input :values %>
-        <%= f.submit class: "btn btn-primary" %>
       <% end %>
-    </div>
+      <div><%= f.submit 'Update profile', class: "button-update" %></div>
+    <% end %>
   </div>
 </div>
 
