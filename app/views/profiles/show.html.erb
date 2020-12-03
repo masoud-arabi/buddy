@@ -1,21 +1,14 @@
 <div class="container-profile">
   <!-- <h1 style="text-align: center;">MY PROFILE</h1> -->
-  <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+  <% if policy(@user).user_owns_profile? %>
+    <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+  <% end %>
 
   <% if @user.first_name.nil? || @user.first_name == ""%>
     <h4 class="head"><i class="fas fa-user-circle"></i> Add your name</h4>
     <% else %>
     <h2 class="head"><i class="fas fa-user-circle"></i> <strong><%= @user.first_name %> <%= @user.last_name %></strong></h2>
   <% end %>
-
-  <div class="form-row">
-    <div class="col">
-      <h2><strong><%= Job.all.count %></strong> Job opp</h2>
-    </div>
-    <div class="col" id="col-contact">
-      <h2><strong><%= Contact.all.count %></strong> Contacts</h2>
-    </div>
-  </div>
 
   <% if @user.background.nil? || @user.background == ""%>
     <h4><i class="fas fa-user-md"></i> add your background</h4>
@@ -67,20 +60,21 @@
   <% end %>
 </div>
 
+<% if policy(@user).user_owns_profile? %>
+  <div class="container-priority">
+    <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+    <h2 class="head"><strong>All Priorities</strong></h2>
+    <% @user.priorities.order(position: :asc).each do |priority| %>
+      <div class="priority_<%= priority.position %>">
+        <h1>Priority n°<%= priority.position %></h1>
+        <h2><%= priority.job_search %></h2>
+        <h2><%= priority.industry %></h2>
+        <h2><%= priority.location %></h2>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
-<div class="container-priority">
-  <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
-  <h2 class="head"><strong>All Priorities</strong></h2>
-  <% @user.priorities.order(position: :asc).each do |priority| %>
-    <div class="priority_<%= priority.position %>">
-      <h1>Priority n°<%= priority.position %></h1>
-      <h2><%= priority.job_search %></h2>
-      <h2><%= priority.industry %></h2>
-      <h2><%= priority.location %></h2>
-    </div>
-  <% end %>
-
-</div>
 
 
 

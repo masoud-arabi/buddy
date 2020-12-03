@@ -31,7 +31,7 @@ user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
   first_name: "Alexandre",
-  last_name: "Coeffet"
+  last_name: "Coëffet"
 )
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
@@ -43,6 +43,9 @@ user_3 = User.create!(
   first_name: "Maxime",
   last_name: "Lapraye"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607005176/max.png")
+user_3.photo.attach(io: file, filename: 'max.png', content_type: 'image/png')
+user_3.save!
 
 10.times do
   User.create!(
@@ -56,7 +59,7 @@ end
  puts "creating companies"
 
 ubisoft = Company.create!(
-name: "Ubisoft Montréal",
+name: "Ubisoft",
 industry: "Video game",
 address: "5505 Boulevard Saint-Laurent, Montréal"
 )
@@ -93,7 +96,6 @@ address: "4398 Boulevard Saint-Laurent, Montréal"
 
 puts "creating jobs"
 
-2.times do
   front_end_developper_absolunet = Job.create!(
   title: "Front-end developer",
   description: "<p>We are looking for a proactive programmer with a keen eye for
@@ -101,7 +103,7 @@ puts "creating jobs"
   ensuring the alignment of web design and user experience requirements, optimizing
   web pages for maximum efficiency and maintaining brand consistency across
   all web pages, among other duties.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'> <h2>Responsibilities:</h2>
   <ul>
   <li>Determining the structure and design of web pages.</li>
   <li>Ensuring user experience determines design choices.</li>
@@ -113,7 +115,7 @@ puts "creating jobs"
   <li>Utilizing a variety of markup languages to write web pages.</li>
   <li>Maintaining brand consistency throughout design.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>Degree in Computer Science or related field.</li>
@@ -137,9 +139,10 @@ puts "creating jobs"
   <li>SEO</li>
   </ul>",
   years_experience: rand(1..5),
-  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
+  company: alithya
   )
 
+3.times do
   back_end_developper_ssense = Job.create!(
   title: "Back-end developer",
   description: "<p>We are looking for an analytical, results-driven Back-end Developer
@@ -148,7 +151,7 @@ puts "creating jobs"
   and tools to analyze current codes and industry developments, formulate more efficient processes,
   solve problems, and create a more seamless experience for users. You should have excellent
   communication, computer, and project management skills.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Compile and analyze data, processes, and codes to troubleshoot problems and
   identify areas for improvement.</li>
@@ -161,8 +164,7 @@ puts "creating jobs"
   practices, learn new programming languages, and better assist other team members.</li>
   <li>Taking lead on projects, as needed.</li>
   </div>
-  <div class='requirements'>Requirements :
-  </ul>
+  <div class='requirements'><h2>Requirements:</h2>
   <ul>
   <li>Bachelor’s degree in computer programming, computer science, or a related field.</li>
   <li>Fluency or understanding of specific languages, such as Java, Ruby, C++, PHP, or Python,
@@ -186,7 +188,9 @@ puts "creating jobs"
   years_experience: rand(1..5),
   company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
   )
+end
 
+2.times do
   product_owner_alithya = Job.create!(
   title: "Product Owner",
   description: "<p>We are looking for a dedicated Product Director to be the point
@@ -195,7 +199,7 @@ puts "creating jobs"
   responsibilities include supporting the scrum team, managing backlog items, and
   optimizing the value of the product(s). You should also be able to lead the product
   development team toward achieving the vision and mission of the organization.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Strategizing and presenting ideas to stakeholders.</li>
   <li>Defining product features according to customer needs.</li>
@@ -208,7 +212,7 @@ puts "creating jobs"
   <li>Identifying areas of improvement.</li>
   <li>Keeping customers and stakeholders informed of the status of the product.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>BA in Computer Science, Information Systems, or related field.</li>
@@ -228,10 +232,11 @@ puts "creating jobs"
   <li>Project Management</li>
   </ul>",
   years_experience: rand(1..5),
-  # company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
-  company: alithya
+  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
   )
+end
 
+3.times do
   web_designer_metrio = Job.create!(
   title: "Web Designer",
   description: "<p>We are looking for a Web Designer who will be responsible for
@@ -239,7 +244,7 @@ puts "creating jobs"
   and implementing creative ideas for client websites, as well as creating visual
   elements that are in line with our clients' branding. You will be working closely with
   our web development team to ensure a proper and hassle-free implementation.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Conceptualizing creative ideas with clients.</li>
   <li>Testing and improving the design of the website.</li>
@@ -253,7 +258,7 @@ puts "creating jobs"
   <li>Identifying areas of improvement.</li>
   <li>Preparing design plans and presenting the website structure.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>A relevant diploma in related field.</li>
@@ -283,7 +288,8 @@ puts "creating jobs"
   years_experience: rand(1..5),
   company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
   )
-
+end
+2.times do
   data_analyst_element_ai = Job.create!(
   title: "Data Analyst",
   description: "<p>We are looking to hire a Data Analyst to join our data team.
@@ -291,7 +297,7 @@ puts "creating jobs"
   and troubleshooting data issues. To do well in this role you need a very fine eye
   for detail, experience as a data analyst, and deep understanding of the popular
   data analysis tools and databases.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Managing master data, including creation, updates, and deletion.</li>
   <li>Managing users and user roles.</li>
@@ -307,7 +313,7 @@ puts "creating jobs"
   <li>Assessing tests and implementing new or upgraded software and assisting with
   strategic decisions on new systems.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>Bachelor’s degree from an accredited university or college in computer science.</li>
@@ -331,7 +337,9 @@ puts "creating jobs"
   years_experience: rand(1..5),
   company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
   )
+end
 
+3.times do
   project_manager_ubisoft = Job.create!(
   title: "Project Manager",
   description: "<p>We are looking for a Project Manager to be responsible for
@@ -340,7 +348,7 @@ puts "creating jobs"
   are on track. Responsibilities include submitting project deliverables, preparing
   status reports, and establishing effective project communication plans as well as
   the proper execution of said plans.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Coordinating with cross discipline team members to make sure that all parties
   are on track with project requirements, deadlines, and schedules.</li>
@@ -354,7 +362,7 @@ puts "creating jobs"
   <li>Obtaining customer acceptance of project deliverables.</li>
   <li>ERP project oversight.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>A bachelor’s degree or master degree in a related field.</li>
@@ -383,16 +391,19 @@ puts "creating contacts"
 
 @array_contact = [*User.first.id..User.last.id]
 id = @array_contact.sample
- contact_3 = Contact.create!(
-  first_name: "Maxime",
-  last_name: "Lapraye",
-  contact_email: "maxime@gmail.com",
-  user_id: user_3.id,
-
+ contact_1 = Contact.create!(
+  first_name: "Alexandre",
+  last_name: "Coeffet",
+  contact_email: "alexandre@gmail.com",
+  user_id: user_1.id,
+  job_title: "Product Owner",
   company: alithya,
   start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+contact_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+contact_1.save!
 
 female_counter = 0
 
@@ -454,10 +465,10 @@ end
 
 puts "creating connections"
 
-connection_maxime = Connection.new
-      connection_maxime.user = user_1
-      connection_maxime.contact = contact_3
-      connection_maxime.save!
+connection_alexandre = Connection.new
+connection_alexandre.user = user_3
+connection_alexandre.contact = contact_1
+connection_alexandre.save!
 
 User.all.each do |user|
   array = []
@@ -474,10 +485,10 @@ User.all.each do |user|
   end
 end
 
-connection_max = Connection.new
-connection_max.user = user_1
-connection_max.contact = contact_3
-connection_max.save!
+# connection_max = Connection.new
+# connection_max.user = user_1
+# connection_max.contact = contact_3
+# connection_max.save!
 
 puts "creating priorities"
 

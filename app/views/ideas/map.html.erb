@@ -1,19 +1,19 @@
  <div class="container_ideas">
 
   <div id="pie-chart-industry">
-    <h1>Actual openned positions per industry</h1>
+    <h1>Job openings per industry</h1>
     <% pie_data = Job.joins(:company).group(:industry).count %>
     <%= pie_chart pie_data, { defer: true,
     width: "300px", height: "300px",
     colors: Job.build_color_pie_chart(pie_data) } %>
-    <p></p>
+    <p>Scroll down to discover more insights...</p>
   </div>
 
   <div id="area-chart-industry">
-    <h1>Evolution of job opening positions per industry</h1>
+    <h1>Job positions per industry</h1>
     <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
     <%= area_chart area_data, { defer: true,
-    xtitle: "Time", ytitle: "Job Openings", points: false,
+    xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: Job.build_color_area_chart(area_data) } %>
     <p></p>
@@ -33,7 +33,7 @@
   <% end %>
 
   <div id="pie-chart-job-title">
-    <h1>Actual openned positions per job title</h1>
+    <h1>Job openings</h1>
     <% pie_data_priorities = Job.group(:title).count %>
     <%= pie_chart pie_data_priorities, { defer: true,
       width: "300px", height: "300px",
@@ -42,19 +42,19 @@
   </div>
 
   <div id="area-chart-job-title">
-    <h1>Evolution of prioritie's job opening positions</h1>
+    <h1>Priorities' job positions</h1>
     <% area_data_priorities = Job.by_user_priorities(current_user, @colors_priorities) %>
     <%= area_chart  area_data_priorities, { defer: true,
-    xtitle: "Time", ytitle: "Job Openings", points: false,
+    xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: Job.build_color_priorities_area_chart(area_data_priorities, @colors_priorities) } %>
     <p></p>
   </div>
 
   <div id="area-chart-total">
-    <h1>Evolution of total job opening positions</h1>
+    <h1>Total job positions</h1>
     <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
-    xtitle: "Time", ytitle: "Job Openings", points: false,
+    xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: ["#55B49E"] } %>
     <p></p>

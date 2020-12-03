@@ -8,9 +8,9 @@
   p {
     text-align: center;
     color: #2F4858;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #55B49E;
-    margin: 10px;
+    margin: 20px 10px;
   }
 }
 
@@ -132,6 +132,10 @@ img {
   line-height: 1.75;
 }
 
+.head {
+  color: #33658A;
+}
+
 .job_priority_1 {
   border-left: 3px solid #F6AE2D;
 }
@@ -164,7 +168,14 @@ img {
   }
 }
 
+.name_profile_show {
+  color: #33658A;
+}
 
+.name_profile_show:hover{
+  text-decoration: none;
+  color: #55B49E;
+}
 
 .container-priority{
   margin:20px;
@@ -189,26 +200,46 @@ img {
 }
 
 .container_ideas {
-
+padding-left: 15px;
+padding-right: 15px;
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 24px;
+    font-weight: 300;
+  }
 }
 
-#pie-chart-industry {
 
+#pie-chart-industry {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  p{
+    font-weight: 200;
+    font-size:14px;
+  }
 }
 
 #area-chart-industry {
-
+  margin-bottom: 50px;
 }
 
 #pie-chart-job-title {
-
+  margin-bottom: 50px;
 }
 
 #area-chart-job-title {
-
+  margin-bottom: 50px;
 }
 
 #area-chart-total {
-
+  margin-bottom: 50px;
 }
 
+.chartsjs-render-monitor {
+  animation: chartjs-render-animation 0.001s;
+  display: block;
+  width: 380px;
+}
