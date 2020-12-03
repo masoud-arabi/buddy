@@ -1,6 +1,6 @@
 <div class="container-messages">
 
-  <h1>Connected to <%= link_to @chat_with_user.first_name, profiles_path, class: "name_profile_show"%></h1>
+  <h1>Connected to <%= link_to @chat_with_user.first_name, profile_path(@chat_with_user), class: "name_profile_show"%></h1>
 
     <%  @messages.each do |message| %>
 
