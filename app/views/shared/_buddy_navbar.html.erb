@@ -1,16 +1,14 @@
 <div class="header">
-    <% if current_user.present? && current_user.photo.attached? %>
-      <%= link_to profile_path(current_user) do %>
-        <%= cl_image_tag current_user.photo.key, class: "buddy-avatar" %>
-      <% end %>
-    <% else %>
-      <%= link_to profile_path(current_user) do %>
-      <%= image_tag "https://res.cloudinary.com/maximelpy/image/upload/v1606857555/buddy/man_2_tnl28l.png", class: "buddy-avatar" %>
-      <% end %>
-
+  <% if current_user.present? && current_user.photo.attached? %>
+    <%= link_to profile_path(current_user) do %>
+      <%= cl_image_tag current_user.photo.key, class: "buddy-avatar" %>
     <% end %>
-
-      <img src="https://res.cloudinary.com/maximelpy/image/upload/v1606943024/logo5_kupm8u.png" alt="" class="buddy-logo">
-    <!--   <img src="https://avatars3.githubusercontent.com/u/71738109?v=4" alt="#" class="buddy-avatar">
-     -->
+  <% elsif current_user.present? %>
+    <%= link_to profile_path(current_user) do %>
+      <%= image_tag "https://res.cloudinary.com/maximelpy/image/upload/v1606857555/buddy/man_2_tnl28l.png", class: "buddy-avatar" %>
+    <% end %>
+  <% end %>
+    <img src="https://res.cloudinary.com/maximelpy/image/upload/v1606943024/logo5_kupm8u.png" alt="" class="buddy-logo">
+  <!--   <img src="https://avatars3.githubusercontent.com/u/71738109?v=4" alt="#" class="buddy-avatar">
+   -->
 </div>
