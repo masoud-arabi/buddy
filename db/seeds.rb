@@ -104,7 +104,7 @@ puts "creating jobs"
   ensuring the alignment of web design and user experience requirements, optimizing
   web pages for maximum efficiency and maintaining brand consistency across
   all web pages, among other duties.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'> <h2>Responsibilities:</h2>
   <ul>
   <li>Determining the structure and design of web pages.</li>
   <li>Ensuring user experience determines design choices.</li>
@@ -116,7 +116,7 @@ puts "creating jobs"
   <li>Utilizing a variety of markup languages to write web pages.</li>
   <li>Maintaining brand consistency throughout design.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>Degree in Computer Science or related field.</li>
@@ -151,7 +151,7 @@ puts "creating jobs"
   and tools to analyze current codes and industry developments, formulate more efficient processes,
   solve problems, and create a more seamless experience for users. You should have excellent
   communication, computer, and project management skills.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Compile and analyze data, processes, and codes to troubleshoot problems and
   identify areas for improvement.</li>
@@ -164,8 +164,7 @@ puts "creating jobs"
   practices, learn new programming languages, and better assist other team members.</li>
   <li>Taking lead on projects, as needed.</li>
   </div>
-  <div class='requirements'>Requirements :
-  </ul>
+  <div class='requirements'><h2>Requirements:</h2>
   <ul>
   <li>Bachelor’s degree in computer programming, computer science, or a related field.</li>
   <li>Fluency or understanding of specific languages, such as Java, Ruby, C++, PHP, or Python,
@@ -198,7 +197,7 @@ puts "creating jobs"
   responsibilities include supporting the scrum team, managing backlog items, and
   optimizing the value of the product(s). You should also be able to lead the product
   development team toward achieving the vision and mission of the organization.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Strategizing and presenting ideas to stakeholders.</li>
   <li>Defining product features according to customer needs.</li>
@@ -211,7 +210,7 @@ puts "creating jobs"
   <li>Identifying areas of improvement.</li>
   <li>Keeping customers and stakeholders informed of the status of the product.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>BA in Computer Science, Information Systems, or related field.</li>
@@ -241,7 +240,7 @@ puts "creating jobs"
   and implementing creative ideas for client websites, as well as creating visual
   elements that are in line with our clients' branding. You will be working closely with
   our web development team to ensure a proper and hassle-free implementation.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Conceptualizing creative ideas with clients.</li>
   <li>Testing and improving the design of the website.</li>
@@ -255,7 +254,7 @@ puts "creating jobs"
   <li>Identifying areas of improvement.</li>
   <li>Preparing design plans and presenting the website structure.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>A relevant diploma in related field.</li>
@@ -293,7 +292,7 @@ puts "creating jobs"
   and troubleshooting data issues. To do well in this role you need a very fine eye
   for detail, experience as a data analyst, and deep understanding of the popular
   data analysis tools and databases.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Managing master data, including creation, updates, and deletion.</li>
   <li>Managing users and user roles.</li>
@@ -309,7 +308,7 @@ puts "creating jobs"
   <li>Assessing tests and implementing new or upgraded software and assisting with
   strategic decisions on new systems.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>Bachelor’s degree from an accredited university or college in computer science.</li>
@@ -342,7 +341,7 @@ puts "creating jobs"
   are on track. Responsibilities include submitting project deliverables, preparing
   status reports, and establishing effective project communication plans as well as
   the proper execution of said plans.</p>
-  <div class='responsibilities'>Responsibility :
+  <div class='responsibilities'><h2>Responsibilities:</h2>
   <ul>
   <li>Coordinating with cross discipline team members to make sure that all parties
   are on track with project requirements, deadlines, and schedules.</li>
@@ -356,7 +355,7 @@ puts "creating jobs"
   <li>Obtaining customer acceptance of project deliverables.</li>
   <li>ERP project oversight.</li>
   </div>
-  <div class='requirements'>Requirements :
+  <div class='requirements'><h2>Requirements:</h2>
   </ul>
   <ul>
   <li>A bachelor’s degree or master degree in a related field.</li>
