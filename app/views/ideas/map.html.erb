@@ -12,7 +12,6 @@
   <div id="area-chart-industry">
     <h1>Evolution of job opening positions per industry</h1>
     <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
-    <% raise %>
     <%= area_chart area_data, { defer: true,
     xtitle: "Time", ytitle: "Job Openings", points: false,
     width: "300px", height: "300px",
@@ -42,11 +41,11 @@
 
   <div id="area-chart-job-title">
     <h1>Evolution of prioritie's job opening positions</h1>
-    <% area_data_priorities =  %>
-    <%= area_chart @user.priorities.group(:job_search).group_by_week(:created_at).count, { defer: true,
+    <% area_data_priorities = Job.by_user_priorities(current_user, @colors_priorities) %>
+    <%= area_chart  area_data_priorities, { defer: true,
     xtitle: "Time", ytitle: "Job Openings", points: false,
     width: "300px", height: "300px",
-    colors: Job.build_color_priorities_area_chart(current_user) } %>
+    colors: Job.build_color_priorities_area_chart(area_data_priorities, @colors_priorities) } %>
     <p></p>
   </div>
 
