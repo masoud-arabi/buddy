@@ -18,12 +18,16 @@
   }
 }
 
+.link-conversation:hover {
+text-decoration: none;
+}
+
 .container-conversation:hover  {
-  color: #2F4858;
+  color: white;
   border: 1px solid white;
-  background-color: white;
+  background-color: #55B49E;
   h1, h2, h3{
-    color: #2F4858;
+    color: white;
     text-decoration: none;
   }
 }
