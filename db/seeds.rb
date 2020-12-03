@@ -43,6 +43,9 @@ user_3 = User.create!(
   first_name: "Maxime",
   last_name: "Lapraye"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607005176/max.png")
+user_3.photo.attach(io: file, filename: 'max.png', content_type: 'image/png')
+user_3.save!
 
 10.times do
   User.create!(
@@ -392,6 +395,9 @@ id = @array_contact.sample
   start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
   )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+contact_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+contact_1.save!
 
 female_counter = 0
 
@@ -454,9 +460,9 @@ end
 puts "creating connections"
 
 connection_alexandre = Connection.new
-      connection_alexandre.user = user_3
-      connection_alexandre.contact = contact_1
-      connection_alexandre.save!
+connection_alexandre.user = user_3
+connection_alexandre.contact = contact_1
+connection_alexandre.save!
 
 User.all.each do |user|
   array = []
