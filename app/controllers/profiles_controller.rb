@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
       end
     end
     if @user.update(user_params) || priority_updated
-      redirect_to profiles_path
+      redirect_to profile_path(@user)
     else
       render :edit
     end
