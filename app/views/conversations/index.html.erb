@@ -7,8 +7,11 @@
       <% chat_with_contact = Contact.find_by(user: chat_with_user) %>
 
       <h1><%= chat_with_user.first_name %> <%= chat_with_user.last_name %></h1>
+      <% if chat_with_user == conversation.receiver %>
       <h3>Product Owner @ Alithya</h3>
-
+      <% else %>
+      <h3>Looking for a job</h3>
+      <% end %>
     <% end %>
   </div>
 <%  end %>
