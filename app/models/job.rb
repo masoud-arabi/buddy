@@ -25,7 +25,7 @@ class Job < ApplicationRecord
 
     jobs.each do |job|
       array_true_false << colors_priorities.keys.any? do |key|
-        job.first.downcase.include?(key.downcase)
+        job.first.downcase.include?(key.downcase) && key.downcase != ""
       end
     end
 
@@ -34,7 +34,7 @@ class Job < ApplicationRecord
         priorities_pie << "#B4DAD2"
       else
         colors_priorities.each_key do |key|
-          if jobs.to_a[index].first.downcase.include?(key.downcase)
+          if jobs.to_a[index].first.downcase.include?(key.downcase) && key.downcase != ""
             priorities_pie << colors_priorities[key]
           end
         end
@@ -64,7 +64,7 @@ class Job < ApplicationRecord
     hash = {}
     result.uniq.each do |element|
       colors_priorities.each_key do |key|
-        if element.first.downcase.include?(key.downcase)
+        if element.first.downcase.include?(key.downcase) && key.downcase != ""
           hash[element] = result.count(element)
         end
       end
@@ -78,7 +78,7 @@ class Job < ApplicationRecord
 
     jobs.each do |job|
       colors_priorities.keys.any? do |key|
-        if job[0][0].downcase.include?(key.downcase)
+        if job[0][0].downcase.include?(key.downcase) && key.downcase != ""
           priorities_area << colors_priorities[key]
         end
       end

@@ -27,6 +27,8 @@
       <% @colors_priorities["#{priority.job_search}"] = "#ED254E" %>
     <% elsif priority.position == 3 %>
       <% @colors_priorities["#{priority.job_search}"] = "#2F4858" %>
+    <% elsif priority.position == nil %>
+      <% @colors_priorities["#{priority.job_search}"] = "#B4DAD2" %>
     <% end %>
   <% end %>
 
