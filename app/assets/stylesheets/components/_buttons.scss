@@ -41,15 +41,19 @@
 
 .button-update{
   display: block;
-  margin: 0 auto;
-  width: 50%;
   border-radius: 5px;
-  background-color: #33658A;
+  background-color: #55B49E;
   margin-top: 15px;
-  color:white;
+  color: white;
   transition: background 0.3s ease;
   border: 1px solid #55B49E;
   text-align: center;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 
 }
 .button-update:hover{
