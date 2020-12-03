@@ -32,11 +32,13 @@ import "bootstrap";
 import "../job_description_toggle"
 import { initAutocomplete} from '../plugins/init_autocomplete';
 import { removeIsValid } from '../components/form_input';
+import { initConversationCable } from '../channels/conversation_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
   removeIsValid();
+  initConversationCable();
 });
 
