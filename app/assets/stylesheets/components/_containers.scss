@@ -132,6 +132,10 @@ img {
   line-height: 1.75;
 }
 
+.head {
+  color: #33658A;
+}
+
 .job_priority_1 {
   border-left: 3px solid #F6AE2D;
 }
@@ -196,26 +200,31 @@ img {
 }
 
 .container_ideas {
-
+padding-left: 15px;
+padding-right: 15px;
+  h1 {
+    text-align: center;
+  }
 }
 
 #pie-chart-industry {
-
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 #area-chart-industry {
-
+  margin-bottom: 50px;
 }
 
 #pie-chart-job-title {
-
+  margin-bottom: 50px;
 }
 
 #area-chart-job-title {
-
+  margin-bottom: 50px;
 }
 
 #area-chart-total {
-
+  margin-bottom: 50px;
 }
 
