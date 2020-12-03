@@ -11,14 +11,18 @@
   align-items: center;
   img{
   width: 260px;
+  height: 48px;
   display: flex;
   align-items: center;
   align-content: center;
   }
   img.logo-home{
-  height: 100px;
+  height: 130px;
   display: flex;
   align-items: center;
   align-content: center;
+  margin-left: 25px;
+  margin-right: 0;
+  width: auto;
 }
 }

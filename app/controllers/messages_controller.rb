@@ -6,8 +6,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.conversation = @conversation
     @message.save
-    flash[:success] = "Your message was sent!"
-    redirect_to conversation_path(@conversation)
+    ConversationChannel.broadcast_to(
+    @conversation,
+    render_to_string(partial: "messages/message", locals: { message: @message }))
   end
 
   private
