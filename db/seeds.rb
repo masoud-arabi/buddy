@@ -390,7 +390,7 @@ id = @array_contact.sample
   last_name: "Coeffet",
   contact_email: "alexandre@gmail.com",
   user_id: user_1.id,
-
+  job_title: "Product Owner",
   company: alithya,
   start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
   end_date: [Faker::Date.between(from: '2018-09-25', to: Date.today), Date.today].sample
