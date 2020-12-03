@@ -8,9 +8,9 @@
   p {
     text-align: center;
     color: #2F4858;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #55B49E;
-    margin: 10px;
+    margin: 20px 10px;
   }
 }
 
@@ -204,12 +204,22 @@ padding-left: 15px;
 padding-right: 15px;
   h1 {
     text-align: center;
+    margin-top: 60px;
+    font-size: 24px;
+    font-weight: 300;
   }
 }
 
+
 #pie-chart-industry {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  p{
+    font-weight: 200;
+    font-size:14px;
+  }
 }
 
 #area-chart-industry {
@@ -228,3 +238,8 @@ padding-right: 15px;
   margin-bottom: 50px;
 }
 
+.chartsjs-render-monitor {
+  animation: chartjs-render-animation 0.001s;
+  display: block;
+  width: 380px;
+}
