@@ -56,7 +56,7 @@ end
  puts "creating companies"
 
 ubisoft = Company.create!(
-name: "Ubisoft Montréal",
+name: "Ubisoft",
 industry: "Video game",
 address: "5505 Boulevard Saint-Laurent, Montréal"
 )
@@ -228,8 +228,7 @@ puts "creating jobs"
   <li>Project Management</li>
   </ul>",
   years_experience: rand(1..5),
-  # company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
-  company: alithya
+  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
   )
 
   web_designer_metrio = Job.create!(
@@ -383,11 +382,11 @@ puts "creating contacts"
 
 @array_contact = [*User.first.id..User.last.id]
 id = @array_contact.sample
- contact_3 = Contact.create!(
-  first_name: "Maxime",
-  last_name: "Lapraye",
-  contact_email: "maxime@gmail.com",
-  user_id: user_3.id,
+ contact_1 = Contact.create!(
+  first_name: "Alexandre",
+  last_name: "Coeffet",
+  contact_email: "alexandre@gmail.com",
+  user_id: user_1.id,
 
   company: alithya,
   start_date: Faker::Date.between(from: '2014-09-25', to: '2018-09-25'),
@@ -454,10 +453,10 @@ end
 
 puts "creating connections"
 
-connection_maxime = Connection.new
-      connection_maxime.user = user_1
-      connection_maxime.contact = contact_3
-      connection_maxime.save!
+connection_alexandre = Connection.new
+      connection_alexandre.user = user_3
+      connection_alexandre.contact = contact_1
+      connection_alexandre.save!
 
 User.all.each do |user|
   array = []
@@ -474,10 +473,10 @@ User.all.each do |user|
   end
 end
 
-connection_max = Connection.new
-connection_max.user = user_1
-connection_max.contact = contact_3
-connection_max.save!
+# connection_max = Connection.new
+# connection_max.user = user_1
+# connection_max.contact = contact_3
+# connection_max.save!
 
 puts "creating priorities"
 
