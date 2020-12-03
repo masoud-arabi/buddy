@@ -11,7 +11,7 @@
   <% end %>
 
   <% if @user.background.nil? || @user.background == ""%>
-    <h4><i class="fas fa-user-md"></i> add your background</h4>
+    <h4><i class="fas fa-user-md"></i> Add your background</h4>
     <% else %>
     <h2><i class="fas fa-user-md"></i> <%= @user.background %></h2>
   <% end %>
@@ -23,13 +23,13 @@
   <% end %>
 
   <% if @user.diploma.nil? || @user.diploma == ""%>
-    <h4><i class="fas fa-user-graduate"></i> add your diploma</h4>
+    <h4><i class="fas fa-user-graduate"></i> Add your diploma</h4>
     <% else %>
     <h2><i class="fas fa-user-graduate"></i> <%= @user.diploma %></h2>
   <% end %>
 
   <% if @user.field_of_studies.nil? || @user.field_of_studies == ""%>
-  <h4><i class="fas fa-book-reader"></i> Select your feild of your studies</h4>
+  <h4><i class="fas fa-book-reader"></i> Select your field of studies</h4>
     <% else %>
     <h2><i class="fas fa-book-reader"></i> <%= @user.field_of_studies %></h2>
   <% end %>
@@ -54,7 +54,7 @@
   <% end %>
 
   <% if @user.city_address.nil? || @user.city_address == ""%>
-    <h4><i class="fas fa-map-marker-alt"></i> add your address</h4>
+    <h4><i class="fas fa-map-marker-alt"></i> Add your address</h4>
     <% else %>
     <h2><i class="fas fa-map-marker-alt"></i> <%= @user.city_address %> <%= @user.country_select %></h2>
   <% end %>
@@ -76,6 +76,4 @@
 <% end %>
 
 
-
-
-
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure to log out?" }, class: "btn-profile" %>
