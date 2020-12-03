@@ -96,7 +96,6 @@ address: "4398 Boulevard Saint-Laurent, Montréal"
 
 puts "creating jobs"
 
-2.times do
   front_end_developper_absolunet = Job.create!(
   title: "Front-end developer",
   description: "<p>We are looking for a proactive programmer with a keen eye for
@@ -140,9 +139,8 @@ puts "creating jobs"
   <li>SEO</li>
   </ul>",
   years_experience: rand(1..5),
-  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya].sample
+  company: alithya
   )
-end
 
 3.times do
   back_end_developper_ssense = Job.create!(
