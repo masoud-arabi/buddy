@@ -12,9 +12,7 @@ class ProfilesController < ApplicationController
     i = [1, 2, 3]
     priority_updated = false
     user_priority_params["priority"].values.each do |priority|
-      # priority.values.each do |variable|
-      #   variable.update(job_search)
-      # end
+
       if priority["id"] == "nil"
         new_priority = Priority.new(
           job_search: priority["job_search"],
