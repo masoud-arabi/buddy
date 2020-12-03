@@ -1,11 +1,10 @@
 class ProfilesController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def edit
     @user = current_user
-
   end
 
   def update
@@ -38,7 +37,7 @@ class ProfilesController < ApplicationController
       end
     end
     if @user.update(user_params) || priority_updated
-      redirect_to profiles_path
+      redirect_to profile_path(@user)
     else
       render :edit
     end

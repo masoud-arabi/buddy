@@ -1,6 +1,8 @@
 <div class="container-profile">
   <!-- <h1 style="text-align: center;">MY PROFILE</h1> -->
-  <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+  <% if policy(@user).user_owns_profile? %>
+    <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+  <% end %>
 
   <% if @user.first_name.nil? || @user.first_name == ""%>
     <h4 class="head"><i class="fas fa-user-circle"></i> Add your name</h4>
@@ -67,20 +69,20 @@
   <% end %>
 </div>
 
-
-<div class="container-priority">
-  <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
-  <h2 class="head"><strong>All Priorities</strong></h2>
-  <% @user.priorities.order(position: :asc).each do |priority| %>
-    <div class="priority_<%= priority.position %>">
-      <h1>Priority n°<%= priority.position %></h1>
-      <h2><%= priority.job_search %></h2>
-      <h2><%= priority.industry %></h2>
-      <h2><%= priority.location %></h2>
-    </div>
-  <% end %>
-
-</div>
+<% if policy(@user).user_owns_profile? %>
+  <div class="container-priority">
+    <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
+    <h2 class="head"><strong>All Priorities</strong></h2>
+    <% @user.priorities.order(position: :asc).each do |priority| %>
+      <div class="priority_<%= priority.position %>">
+        <h1>Priority n°<%= priority.position %></h1>
+        <h2><%= priority.job_search %></h2>
+        <h2><%= priority.industry %></h2>
+        <h2><%= priority.location %></h2>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 
 

@@ -71,3 +71,5 @@ gem 'chartkick'
 gem 'highcharts-rails'
 
 gem 'groupdate'
+
+gem 'pundit'
