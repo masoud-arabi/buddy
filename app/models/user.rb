@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def match_priority_to_job(job_title)
     self.priorities.each do |priority|
-      if job_title == priority.job_search
+      if job_title.downcase.include?(priority.job_search.downcase) && priority.job_search.downcase != ""
         return priority.position
       end
     end
@@ -29,7 +29,7 @@ class User < ApplicationRecord
   def matches_at_least_one_job(jobs)
     jobs.each do |job|
       self.priorities.each do |priority|
-        return true if priority.job_search == job.title
+        return true if job.title.downcase.include?(priority.job_search.downcase) && priority.job_search.downcase != ""
       end
     end
     return false
