@@ -31,7 +31,7 @@ user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
   first_name: "Alexandre",
-  last_name: "Coeffet"
+  last_name: "Coëffet"
 )
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')

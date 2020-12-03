@@ -28,7 +28,11 @@
                     <div class="card-connection-details">
                       <h1><%= "#{contact.first_name} #{contact.last_name}" %></h1>
 
+      
+
+
                       <h2><%= contact.job_title%> @ <%= contact.company.name%></h2>
+
                     <% connection = Connection.find_by(contact: contact) %>
                     <h3><%= connection.duration_work %></h3>
                     <% buddies += 1 %>
