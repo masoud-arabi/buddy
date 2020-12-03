@@ -2,3 +2,4 @@ meta_product_name: "Buddy"
 meta_title: "Buddy - Connect to your network now! "
 meta_description: "An app to connect to your linkedIn contacts to help you find a job using the power of your network, set up priorities in your profile and you will be able to see all your contact with job openings in their company "
 meta_image: "buddy_logo.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
