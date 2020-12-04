@@ -725,7 +725,7 @@ User.all.each do |user|
 end
 
 connection_masoud = Connection.new
-connection_masoud.user = user_2
+connection_masoud.user = user_1
 connection_masoud.contact = contact_3
 connection_masoud.save!
 
