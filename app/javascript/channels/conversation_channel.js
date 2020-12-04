@@ -7,9 +7,9 @@ const initConversationCable = () => {
 
     consumer.subscriptions.create({ channel: "ConversationChannel", id: id }, {
       received(data) {
-            messagesContainer.insertAdjacentHTML('beforeend', data);
- // called when data is broadcast in the cable
- console.log(data);
+      messagesContainer.insertAdjacentHTML('beforeend', data);
+      const messageScrollDown = document.getElementById("message-auto");
+      messageScrollDown.scrollTo(0, messageScrollDown.scrollHeight);
       },
     });
   }
