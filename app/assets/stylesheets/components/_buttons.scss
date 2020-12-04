@@ -37,6 +37,11 @@ a.btn-profile {
   float: right;
   display: flex;
   justify-content: space-between;
+  &:focus, &:visited, &:active {
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
 
 }
 
