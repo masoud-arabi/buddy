@@ -150,21 +150,35 @@ img {
 
 .priority_1{
   margin-top: 30px;
-  h1, h2{
+  h1{
   color: #F6AE2D;
+  }
+  h2{
+  color: #F6AE2D;
+  font-weight: 300;
   }
 }
 .priority_2{
   margin-top: 30px;
-  h1, h2{
+   h1{
   color: #ED254E;
+  }
+  h2{
+  color: #ED254E;
+  font-weight: 300;
+  }
+  h2{
+    font-weight: 300;
   }
 }
 .priority_3{
   margin-top: 30px;
-  margin-bottom: 30px;
-  h1, h2{
+   h1{
   color: #2F4858;
+  }
+  h2{
+  color: #2F4858;
+  font-weight: 300;
   }
 }
 
@@ -219,7 +233,16 @@ padding-right: 15px;
   p{
     font-weight: 200;
     font-size:14px;
+    text-align: center;
+    border-bottom: 1px solid #55B49E;
+    padding: 40px;
   }
+}
+
+.chartsjs-render-monitor {
+  animation: chartjs-render-animation 0.001s;
+  display: block;
+  width: 380px;
 }
 
 #area-chart-industry {
@@ -238,8 +261,3 @@ padding-right: 15px;
   margin-bottom: 50px;
 }
 
-.chartsjs-render-monitor {
-  animation: chartjs-render-animation 0.001s;
-  display: block;
-  width: 380px;
-}

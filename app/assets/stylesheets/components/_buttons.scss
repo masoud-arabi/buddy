@@ -18,8 +18,12 @@
   margin-right: 20px;
   display: flex;
   justify-content: center;
+  padding: 5px;
 }
 
+.btn-profile:hover {
+  background-color: #55B49E;
+}
 
 a.btn-profile {
   color: white;
@@ -85,3 +89,12 @@ a.btn-profile {
   //border: 1px solid #55B49E;
 
 }
+
+.button-edit {
+  .fas:hover {
+    color: #55B49E;
+    text-decoration: none;
+  }
+}
+
+*:focus {outline:0;}

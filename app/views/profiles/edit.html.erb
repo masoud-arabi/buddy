@@ -65,7 +65,7 @@
       </br>
 
       <% i = 0 %>
-      <h1 class="head">Priorities</h1>
+      <h1 class="head">Job Search Priorities</h1>
       <p style="text-align: center;">Below you can define <strong>3 job search priorities</strong>. It will
       filter the contacts list with the right industry, job title and location.</p>
 
@@ -77,9 +77,9 @@
           <% i += 1 %>
           <div class="priority_<%= i %>">
               <h5>Priority n° <%= i %></h5>
-              <%= c.input :job_search, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][job_search]", value: priority ? priority.job_search : "" } %>
-              <%= c.input :industry, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][industry]", value: priority ? priority.industry : "" } %>
-              <%= c.input :location, input_html: {id: "edit-form-box", name: "user[priority][prio_#{i}][location]", value: priority ? priority.location : "" } %>
+              <%= c.input :job_search, input_html: {autocomplete: 'off', id: "edit-form-box", name: "user[priority][prio_#{i}][job_search]", value: priority ? priority.job_search : "" } %>
+              <%= c.input :industry, input_html: {autocomplete: 'off', id: "edit-form-box", name: "user[priority][prio_#{i}][industry]", value: priority ? priority.industry : "" } %>
+              <%= c.input :location, input_html: {autocomplete: 'off', id: "edit-form-box", name: "user[priority][prio_#{i}][location]", value: priority ? priority.location : "" } %>
               <%= hidden_field("user[priority][prio_#{i}]", "id", value: priority ? priority.id : "nil" ) %>
           </div>
         <% end %>
@@ -87,5 +87,4 @@
       <div><%= f.submit 'save', class: "button-update" %></div>
     <% end %>
   </div>
-
 
