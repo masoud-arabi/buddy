@@ -637,7 +637,7 @@ connection_alexandre.contact = contact_1
 connection_alexandre.save!
 
 # puts "creating priorities"
-
+# yes
 
 # Priority.create!(
 #   user: user_1,
