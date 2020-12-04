@@ -16,10 +16,20 @@ class User < ApplicationRecord
     sender_conversations.or(receiver_conversations)
   end
 
-
-  def match_priority_to_job(job_title)
+  def match_priority_to_job(job)
     self.priorities.each do |priority|
-      if job_title.downcase.include?(priority.job_search.downcase) && priority.job_search.downcase != ""
+      condition_job_search = job.title.downcase.include?(priority.job_search.downcase) && priority.job_search.downcase != ""
+      if priority.industry != ""
+        condition_industry_search = (job.company.industry.downcase == priority.industry.downcase)
+      else
+        condition_industry_search = true
+      end
+      if priority.location != ""
+        condition_location_search = (job.company.address.downcase.include?(priority.location.downcase))
+      else
+        condition_location_search = true
+      end
+      if condition_job_search && condition_industry_search && condition_location_search
         return priority.position
       end
     end
