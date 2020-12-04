@@ -41,6 +41,11 @@ a.btn-profile {
   float: right;
   display: flex;
   justify-content: space-between;
+  &:focus, &:visited, &:active {
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
 
 }
 
@@ -74,12 +79,14 @@ a.btn-profile {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-
 }
+
+*:focus {outline:0;}
+
 .button-update:hover{
-  background-color: #55B49E;
+  background-color: #33658A;
   color: white;
-  border: 1px solid #55B49E;
+  //border: 1px solid #55B49E;
 
 }
 

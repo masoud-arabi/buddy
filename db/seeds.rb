@@ -724,15 +724,15 @@ User.all.each do |user|
   end
 end
 
-connection_masoud = Connection.new
-connection_masoud.user = user_1
-connection_masoud.contact = contact_3
-connection_masoud.save!
+connection_masoud_alexandre = Connection.new
+connection_masoud_alexandre.user = user_3
+connection_masoud_alexandre.contact = contact_1
+connection_masoud_alexandre.save!
 
-connection_alexandre = Connection.new
-connection_alexandre.user = user_2
-connection_alexandre.contact = contact_1
-connection_alexandre.save!
+connection_maxime_alexandre = Connection.new
+connection_maxime_alexandre.user = user_2
+connection_maxime_alexandre.contact = contact_1
+connection_maxime_alexandre.save!
 
 # puts "creating priorities"
 # yes
