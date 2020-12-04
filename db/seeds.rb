@@ -645,8 +645,8 @@ contact_3 = Contact.create!(
   start_date: '2020-12-03',
   end_date: Date.today,
   )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-contact_3.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110873/Company%20logo/IMG_0654_cne4gq.jpg")
+contact_3.photo.attach(io: file, filename: 'IMG_0654_cne4gq.jpg', content_type: 'image/jpg')
 contact_3.save!
 
 female_counter = 0
