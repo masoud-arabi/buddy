@@ -52,8 +52,8 @@ user_3 = User.create!(
   first_name: "Masoud",
   last_name: "Arabi"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607005176/max.png")
-user_3.photo.attach(io: file, filename: 'masoud.png', content_type: 'image/png')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110873/Company%20logo/IMG_0654_cne4gq.jpg")
+user_3.photo.attach(io: file, filename: 'IMG_0654_cne4gq.jpg', content_type: 'image/jpg')
 user_3.save!
 
 10.times do
@@ -81,8 +81,8 @@ name: "Element AI",
 industry: "Artificial Intelligence",
 address: "6650 Rue Saint-Urbain, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-element_ai.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110595/Company%20logo/Element_AI_logo_wn7wgz.png")
+element_ai.photo.attach(io: file, filename: 'Element_AI_logo_wn7wgz.png', content_type: 'image/png')
 element_ai.save!
 
 metrio = Company.create!(
@@ -90,8 +90,8 @@ name: "Logiciels Metrio",
 industry: "Sustainability",
 address: "94 Avenue Laurier Ouest, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-metrio.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110595/Company%20logo/metrio-web-500x500-350x350_pvvwgi.png")
+metrio.photo.attach(io: file, filename: 'metrio-web-500x500-350x350_pvvwgi.png', content_type: 'image/png')
 metrio.save!
 
 alithya = Company.create!(
@@ -99,8 +99,8 @@ name: "Alithya",
 industry: "Consulting",
 address: "1100 Boulevard Robert-Bourassa, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-alithya.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110595/Company%20logo/eMJcXdQN_omslcp.jpg")
+alithya.photo.attach(io: file, filename: 'eMJcXdQN_omslcp.jpg', content_type: 'image/jpg')
 alithya.save!
 
 ssense = Company.create!(
@@ -108,8 +108,8 @@ name: "SSENSE",
 industry: "eCommerce",
 address: "418 Rue Saint-Sulpice, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-ssense.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110595/Company%20logo/e7867f8db0b8b8b4be8c5a9e0f11ada3_cpdtwh.jpg")
+ssense.photo.attach(io: file, filename: 'e7867f8db0b8b8b4be8c5a9e0f11ada3_cpdtwh.jpg', content_type: 'image/jpg')
 ssense.save!
 
 absolunet = Company.create!(
@@ -117,8 +117,8 @@ name: "Absolunet",
 industry: "eCommerce",
 address: "4398 Boulevard Saint-Laurent, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-absolunet.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110596/Company%20logo/te%CC%81le%CC%81chargement_npflmr.png")
+absolunet.photo.attach(io: file, filename: 'te%CC%81le%CC%81chargement_npflmr.png', content_type: 'image/png')
 absolunet.save!
 
 lightspeed = Company.create!(
@@ -126,8 +126,8 @@ name: "Lightspeed",
 industry: "eCommerce",
 address: "700 Saint-Antoine Street, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-lightspeed.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110596/Company%20logo/ybduauzyr0ixokn4vryr_k113xv.png")
+lightspeed.photo.attach(io: file, filename: 'ybduauzyr0ixokn4vryr_k113xv.png', content_type: 'image/png')
 lightspeed.save!
 
 bello_solutions = Company.create!(
@@ -135,8 +135,8 @@ name: "Bello-Solutions",
 industry: "Sustainability",
 address: "Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-bello_solutions.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607110595/Company%20logo/logoBelloSolutions_wkqu79.png")
+bello_solutions.photo.attach(io: file, filename: 'logoBelloSolutions_wkqu79.png', content_type: 'image/png')
 bello_solutions.save!
 
 puts "creating jobs"
