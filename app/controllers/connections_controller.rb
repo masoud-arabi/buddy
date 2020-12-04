@@ -6,7 +6,7 @@ class ConnectionsController < ApplicationController
     user.connections.each do |connection|
       user.priorities.each do |priority|
         connection.contact.company.jobs.each do |job|
-          if user.match_priority_to_job(job.title)
+          if user.match_priority_to_job(job)
             @connections << connection.contact
           end
         end
