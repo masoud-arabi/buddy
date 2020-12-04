@@ -26,7 +26,6 @@ Conversation.destroy_all
 
 puts "creating users"
 
-
 user_1 = User.new(
   email: "alexp.coeff@gmail.com",
   password: "123456",
