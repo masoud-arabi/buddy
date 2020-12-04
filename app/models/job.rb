@@ -69,7 +69,26 @@ class Job < ApplicationRecord
         end
       end
     end
-    return hash
+
+    comparison = hash.map do |element|
+      element[0][0]
+    end
+
+    last_arr = []
+    new_arr = hash.group_by_week { |u| u[0][1] }
+
+    new_arr.each do |element_1|
+      element_1[1].each do |element_2|
+        last_arr << [[element_2[0][0], element_1[0]], element_2[1]]
+      end
+      if (comparison.uniq - element_1.flatten).length == 1
+        last_arr << [[(comparison.uniq - element_1.flatten).first, element_1[0]], 0]
+      elsif (comparison.uniq - element_1.flatten).length == 2
+        last_arr << [[(comparison.uniq - element_1.flatten).first, element_1[0]], 0]
+        last_arr << [[(comparison.uniq - element_1.flatten)[1], element_1[0]], 0]
+      end
+    end
+    return last_arr.sort_by { |name, age| name }.to_h
   end
 
   def self.build_color_priorities_area_chart(jobs, colors_priorities)
