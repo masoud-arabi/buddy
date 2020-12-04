@@ -3,7 +3,6 @@
   <h1>Connected to <%= link_to @chat_with_user.first_name, profile_path(@chat_with_user), class: "name_profile_show"%></h1>
   <div id="message-auto" data-conversation-id="<%= @conversation.id %>">
 
-
     <%  @messages.each do |message| %>
       <%= render partial: "messages/message", locals: {message: message} %>
     <% end %>
