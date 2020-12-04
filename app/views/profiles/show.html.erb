@@ -63,7 +63,7 @@
 <% if policy(@user).user_owns_profile? %>
   <div class="container-priority">
     <a class="button-edit" href="/profiles/edit"><i class="fas fa-edit fa-lg"></i></a>
-    <h2 class="head"><strong>All Priorities</strong></h2>
+    <h2 class="head"><strong>Job Search Priorities</strong></h2>
     <% @user.priorities.order(position: :asc).each do |priority| %>
       <div class="priority_<%= priority.position %>">
         <h1>Priority n°<%= priority.position %></h1>
