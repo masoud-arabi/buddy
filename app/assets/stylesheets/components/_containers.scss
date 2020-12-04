@@ -219,7 +219,16 @@ padding-right: 15px;
   p{
     font-weight: 200;
     font-size:14px;
+    text-align: center;
+    border-bottom: 1px solid #55B49E;
+    padding: 40px;
   }
+}
+
+.chartsjs-render-monitor {
+  animation: chartjs-render-animation 0.001s;
+  display: block;
+  width: 380px;
 }
 
 #area-chart-industry {
@@ -238,8 +247,3 @@ padding-right: 15px;
   margin-bottom: 50px;
 }
 
-.chartsjs-render-monitor {
-  animation: chartjs-render-animation 0.001s;
-  display: block;
-  width: 380px;
-}

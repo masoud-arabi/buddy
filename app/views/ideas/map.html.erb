@@ -9,7 +9,7 @@
     <p>Scroll down to discover more insights...</p>
   </div>
 
-  <div id="area-chart-industry">
+  <div id="pie-chart-industry">
     <h1>Job positions per industry</h1>
     <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
     <%= area_chart area_data, { defer: true,
@@ -32,7 +32,7 @@
     <% end %>
   <% end %>
 
-  <div id="pie-chart-job-title">
+  <div id="pie-chart-industry">
     <h1>Job openings</h1>
     <% pie_data_priorities = Job.group(:title).count %>
     <%= pie_chart pie_data_priorities, { defer: true,
@@ -41,7 +41,7 @@
     <p></p>
   </div>
 
-  <div id="area-chart-job-title">
+  <div id="pie-chart-industry">
     <h1>Priorities' job positions</h1>
     <% area_data_priorities = Job.by_user_priorities(current_user, @colors_priorities) %>
     <%= area_chart  area_data_priorities, { defer: true,
@@ -51,7 +51,7 @@
     <p></p>
   </div>
 
-  <div id="area-chart-total">
+  <div id="pie-chart-industry">
     <h1>Total job positions</h1>
     <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
     xtitle: "Time", ytitle: "Jobs", points: false,
