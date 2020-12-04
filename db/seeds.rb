@@ -72,8 +72,8 @@ name: "Ubisoft",
 industry: "Video game",
 address: "5505 Boulevard Saint-Laurent, Montreal"
 )
-file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
-ubisoft.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607113124/Company%20logo/ZGID6CM0_gelwml.jpg")
+ubisoft.photo.attach(io: file, filename: 'ZGID6CM0_gelwml.jpg', content_type: 'image/jpg')
 ubisoft.save!
 
 element_ai = Company.create!(

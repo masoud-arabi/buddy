@@ -211,6 +211,16 @@ img {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  .img-job {
+    display: block;
+    position: relative;
+    align-self: center;
+    margin: 1rem;
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 .container_ideas {
