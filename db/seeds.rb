@@ -46,6 +46,16 @@ file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607005176/m
 user_2.photo.attach(io: file, filename: 'max.png', content_type: 'image/png')
 user_2.save!
 
+user_3 = User.create!(
+  email: "masoud@gmail.com",
+  password: "123456789",
+  first_name: "Masoud",
+  last_name: "Arabi"
+)
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1607005176/max.png")
+user_3.photo.attach(io: file, filename: 'masoud.png', content_type: 'image/png')
+user_3.save!
+
 10.times do
   User.create!(
     email: Faker::Internet.email,
@@ -62,48 +72,72 @@ name: "Ubisoft",
 industry: "Video game",
 address: "5505 Boulevard Saint-Laurent, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+ubisoft.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+ubisoft.save!
 
 element_ai = Company.create!(
 name: "Element AI",
 industry: "Artificial Intelligence",
 address: "6650 Rue Saint-Urbain, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+element_ai.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+element_ai.save!
 
 metrio = Company.create!(
 name: "Logiciels Metrio",
 industry: "Sustainability",
 address: "94 Avenue Laurier Ouest, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+metrio.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+metrio.save!
 
 alithya = Company.create!(
 name: "Alithya",
 industry: "Consulting",
 address: "1100 Boulevard Robert-Bourassa, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+alithya.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+alithya.save!
 
 ssense = Company.create!(
 name: "SSENSE",
 industry: "eCommerce",
 address: "418 Rue Saint-Sulpice, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+ssense.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+ssense.save!
 
 absolunet = Company.create!(
 name: "Absolunet",
 industry: "eCommerce",
 address: "4398 Boulevard Saint-Laurent, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+absolunet.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+absolunet.save!
 
 lightspeed = Company.create!(
 name: "Lightspeed",
 industry: "eCommerce",
 address: "700 Saint-Antoine Street, Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+lightspeed.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+lightspeed.save!
 
 bello_solutions = Company.create!(
 name: "Bello-Solutions",
 industry: "Sustainability",
 address: "Montreal"
 )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+bello_solutions.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+bello_solutions.save!
 
 puts "creating jobs"
 
@@ -291,7 +325,7 @@ front_end_developper_lightspeed = Job.create!(
   company: lightspeed
   )
 
-5.times do
+4.times do
   back_end_developper = Job.create!(
   title: "Back-end developer",
   description: "<p>We are looking for an analytical, results-driven Back-end Developer
@@ -335,9 +369,55 @@ front_end_developper_lightspeed = Job.create!(
   <li>C++</li>
   </ul>",
   years_experience: rand(1..5),
-  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya, lightspeed, bello_solutions].sample
+  company: [ssense, metrio, element_ai, ubisoft, absolunet, alithya, lightspeed].sample
   )
 end
+
+back_end_developper = Job.create!(
+  title: "Back-end developer",
+  description: "<p>We are looking for an analytical, results-driven Back-end Developer
+  who will work with team members to troubleshoot and improve current back-end applications
+  and processes. The Back-end Developer will use his or her understanding of programming languages
+  and tools to analyze current codes and industry developments, formulate more efficient processes,
+  solve problems, and create a more seamless experience for users. You should have excellent
+  communication, computer, and project management skills.</p>
+  <div class='responsibilities'><h2>Responsibilities:</h2>
+  <ul>
+  <li>Compile and analyze data, processes, and codes to troubleshoot problems and
+  identify areas for improvement.</li>
+  <li>Collaborating with the front-end developers and other team members to establish
+  objectives and design more functional, cohesive codes to enhance the user experience.</li>
+  <li>Developing ideas for new programs, products, or features by monitoring industry
+  developments and trends.</li>
+  <li>Recording data and reporting it to proper parties, such as clients or leadership.</li>
+  <li>Participating in continuing education and training to remain current on best
+  practices, learn new programming languages, and better assist other team members.</li>
+  <li>Taking lead on projects, as needed.</li>
+  </div>
+  <div class='requirements'><h2>Requirements:</h2>
+  <ul>
+  <li>Bachelor’s degree in computer programming, computer science, or a related field.</li>
+  <li>Fluency or understanding of specific languages, such as Java, Ruby, C++, PHP, or Python,
+  and operating systems may be required.</li>
+  <li>Strong understanding of the web development cycle and programming techniques and tools.</li>
+  <li>Focus on efficiency, user experience, and process improvement.</li>
+  <li>Excellent project and time management skills.</li>
+  <li>Strong problem solving and verbal and written communication skills.</li>
+  <li>Ability to work independently or with a group.</li>
+  <li>Willingness to sit at desk for extended periods.</li>
+  </ul>
+  </div>",
+  created_at: Faker::Date.between(from: '2020-11-15', to: Date.today),
+  skills: "<ul>
+  <li>Java</li>
+  <li>PHP</li>
+  <li>Python</li>
+  <li>Ruby</li>
+  <li>C++</li>
+  </ul>",
+  years_experience: rand(1..5),
+  company: bello_solutions
+  )
 
 4.times do
   product_owner = Job.create!(
@@ -555,6 +635,20 @@ file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/v
 contact_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
 contact_1.save!
 
+contact_3 = Contact.create!(
+  first_name: "Masoud",
+  last_name: "Arabi",
+  contact_email: "alexandre@gmail.com",
+  user_id: user_3.id,
+  job_title: "Full-stack developer",
+  company: bello_solutions,
+  start_date: '2020-12-03',
+  end_date: Date.today,
+  )
+file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
+contact_3.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')
+contact_3.save!
+
 female_counter = 0
 
 25.times do
@@ -606,7 +700,6 @@ male_counter = 0
   file = URI.open("https://randomuser.me/api/portraits/med/men/#{male_counter}.jpg")
   contact.photo.attach(io: file, filename: "#{fn}.png", content_type: 'image/png')
 
-
   contact.save!
   number = @array_contact.index(id).to_i
   @array_contact.slice!(number)
@@ -630,6 +723,11 @@ User.all.each do |user|
     i = rand(0..49)
   end
 end
+
+connection_masoud = Connection.new
+connection_masoud.user = user_2
+connection_masoud.contact = contact_3
+connection_masoud.save!
 
 connection_alexandre = Connection.new
 connection_alexandre.user = user_2
