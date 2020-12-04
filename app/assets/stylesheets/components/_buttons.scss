@@ -20,6 +20,9 @@
   justify-content: center;
 }
 
+.btn-profile:hover {
+  background-color: #55B49E;
+}
 
 a.btn-profile {
   color: white;
@@ -77,4 +80,11 @@ a.btn-profile {
   color: white;
   border: 1px solid #55B49E;
 
+}
+
+.button-edit {
+  .fas:hover {
+    color: #55B49E;
+    text-decoration: none;
+  }
 }
