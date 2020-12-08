@@ -734,23 +734,22 @@ connection_maxime_alexandre.user = user_2
 connection_maxime_alexandre.contact = contact_1
 connection_maxime_alexandre.save!
 
-# puts "creating priorities"
-# yes
+puts "creating priorities"
 
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Product Owner",
-#   position: 1
-#   )
+Priority.create!(
+  user: user_1,
+  job_search: "Product Owner",
+  position: 1
+  )
 
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Front-end developer",
-#   position: 2
-#   )
+Priority.create!(
+  user: user_1,
+  job_search: "Front-end developer",
+  position: 2
+  )
 
-# Priority.create!(
-#   user: user_1,
-#   job_search: "Back-end developer",
-#   position: 3
-#   )
+Priority.create!(
+  user: user_1,
+  job_search: "Back-end developer",
+  position: 3
+  )
