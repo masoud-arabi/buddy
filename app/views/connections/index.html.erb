@@ -5,93 +5,94 @@
 <% array_opportunities = [] %>
 
 <% content_for(:main_page_connections) do %>
-  <div class="connections">
+<div class="connections">
     <% if @connections.count.positive? %>
 
-      <% @connections.each_with_index do |connection, index| %>
-        <% contact = @connections[index] %>
-        <% jobs_per_connections = connection.company.jobs.select do |job| %>
-          <% !((seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || (current_user.match_priority_to_job(job) == false && !current_user.matches_at_least_one_job(connection.company.jobs))) %>
-        <% end %>
+    <% @connections.each_with_index do |connection, index| %>
+    <% contact = @connections[index] %>
+    <% jobs_per_connections = connection.company.jobs.select do |job| %>
+    <% !((seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || (current_user.match_priority_to_job(job) == false && !current_user.matches_at_least_one_job(connection.company.jobs))) %>
+    <% end %>
 
-        <% connection.company.jobs.each do |job| %>
-          <% array_opportunities.push(job.id) if current_user.match_priority_to_job(job)%>
-          <% next if previous_contact == contact %>
-            <% unless (seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || !current_user.matches_at_least_one_job(connection.company.jobs) %>
-              <div class="connections-wrapper">
-                <div class="card-connection">
-                  <% if contact.photo.attached? %>
-                    <%= cl_image_tag contact&.photo.key, alt: "alttext", :class => "card-image" %>
-                  <% else %>
-                   <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
-                  <% end %>
-                    <div class="card-connection-details">
-                      <h1><%= "#{contact.first_name} #{contact.last_name}" %></h1>
-
-                      <h2><%= contact.job_title%> @ <%= contact.company.name%></h2>
-
-                    <% connection = Connection.find_by(contact: contact) %>
-                    <h3><%= connection.duration_work %></h3>
-                    <% buddies += 1 %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="job-container">
-
-                <% jobs_per_connections.each do |job_per_connection| %>
-                  <% next if current_user.match_priority_to_job(job_per_connection) == false %>
-
-                  <div>
-
-                    <div class="job-card job_priority_<%= current_user.match_priority_to_job(job_per_connection) %>" onclick="window.toggleDescription(this)">
-                      <h1 >
-                      <%= job_per_connection.title %>
-                      </h1>
-                    </div>
-
-                    <div class="job-desc-container" style="display:none;">
-                      <%= cl_image_tag job_per_connection.company.photo.key, alt: "alttext", :class => "img-job" %>
-                      <%= job_per_connection.description.html_safe %>
-
-                      <div class="btn">
-                        <% if contact&.is_a_user? %>
-                          <%= link_to " Connect with your Buddy", user_conversations_path(connection.contact.user_id), method: :post %>
-                        <% else %>
-                          <%= link_to " send an e-mail" %>
-                        <% end %>
-                      </div>
-
-                    </div>
-
-                  </div>
-                <% end %>
-              </div>
+    <% connection.company.jobs.each do |job| %>
+    <% array_opportunities.push(job.id) if current_user.match_priority_to_job(job)%>
+    <% next if previous_contact == contact %>
+    <% unless (seen_contacts.include?(contact.id) && seen_jobs.include?(job.id)) || !current_user.matches_at_least_one_job(connection.company.jobs) %>
+    <div class="connections-wrapper">
+        <div class="card-connection">
+            <% if contact.photo.attached? %>
+            <%= cl_image_tag contact&.photo.key, alt: "alttext", :class => "card-image" %>
+            <% else %>
+            <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
             <% end %>
+            <div class="card-connection-details">
+                <h1><%= "#{contact.first_name} #{contact.last_name}" %></h1>
 
-            <% seen_jobs.push(job.id) %>
-            <% seen_contacts.push(contact.id) %>
-            <% previous_contact = contact %>
+                <h2><%= contact.job_title%> @ <%= contact.company.name%></h2>
+
+                <% connection = Connection.find_by(contact: contact) %>
+                <h3><%= connection.duration_work %></h3>
+                <% buddies += 1 %>
+            </div>
+        </div>
+    </div>
+
+    <div class="job-container">
+
+        <% jobs_per_connections.each do |job_per_connection| %>
+        <% next if current_user.match_priority_to_job(job_per_connection) == false %>
+
+        <div>
+
+            <div class="job-card job_priority_<%= current_user.match_priority_to_job(job_per_connection) %>" onclick="window.toggleDescription(this)">
+                <h1>
+                    <%= job_per_connection.title %>
+                </h1>
+            </div>
+
+            <div class="job-desc-container" style="display:none;">
+                <%= cl_image_tag job_per_connection.company.photo.key, alt: "alttext", :class => "img-job" %>
+                <%= job_per_connection.description.html_safe %>
+
+                <div class="btn">
+                    <% if contact&.is_a_user? %>
+                    <%= link_to " Connect with your Buddy", user_conversations_path(connection.contact.user_id), method: :post %>
+                    <% else %>
+                    <%= link_to " send an e-mail" %>
+                    <% end %>
+                </div>
+
+            </div>
+
+        </div>
         <% end %>
+    </div>
+    <% end %>
 
-      <% end %>
+    <% seen_jobs.push(job.id) %>
+    <% seen_contacts.push(contact.id) %>
+    <% previous_contact = contact %>
+    <% end %>
+
+    <% end %>
 
     <% else %>
 
-      <%= link_to profile_path(current_user) do %>
-        <div class="container-no-connection">
-          <%= image_tag "no-connection.svg", alt: "alttext" %>
-          <h1>Set up your job priorities to see your buddies !</h1>
-        </div>
-      <% end %>
+    <%= link_to profile_path(current_user) do %>
+    <div class="container-no-connection">
+        <%= image_tag "no-connection.svg", alt: "alttext" %>
+        <h1>Set up your job priorities to see your buddies !</h1>
+    </div>
     <% end %>
-  </div>
+    <% end %>
+</div>
 <% end %>
 
 
 <% content_for :opportunities_buddies do %>
-  <div class="container-title-desc">
-  <p> You have <strong><%= array_opportunities.uniq.count %></strong>  opportunities with <strong><%= buddies %></strong>  Buddies! </p></div>
+<div class="container-title-desc">
+    <p> You have <strong><%= array_opportunities.uniq.count %></strong> opportunities with <strong><%= buddies %></strong> Buddies! </p>
+</div>
 <% end %>
 
 
@@ -99,4 +100,3 @@
 
 <%= yield(:opportunities_buddies) %>
 <%= yield(:main_page_connections) %>
-

@@ -1,26 +1,20 @@
 <div class="container-messages">
-  <h1>Connected to <%= link_to @chat_with_user.first_name, profile_path(@chat_with_user), class: "name_profile_show"%></h1>
-  <div id="message-auto" data-conversation-id="<%= @conversation.id %>">
+    <h1>Connected to <%= link_to @chat_with_user.first_name, profile_path(@chat_with_user), class: "name_profile_show"%></h1>
+    <div id="message-auto" data-conversation-id="<%= @conversation.id %>">
 
-    <%  @messages.each do |message| %>
-      <%= render partial: "messages/message", locals: {message: message} %>
-    <% end %>
-  </div>
+        <%  @messages.each do |message| %>
+        <%= render partial: "messages/message", locals: {message: message} %>
+        <% end %>
+    </div>
 
 
-  <div class="container-message-edit">
-    <%= simple_form_for([@conversation, @message], html: { autocomplete: 'off' }  )do |f| %>
-      <%#= hidden_field_tag 'conversation_id', @conversation.id %>
-      <%= f.input :content, label: false %>
-      <%= button_tag type: 'submit', class: "button-send" do %>
+    <div class="container-message-edit">
+        <%= simple_form_for([@conversation, @message], html: { autocomplete: 'off' }  )do |f| %>
+        <%#= hidden_field_tag 'conversation_id', @conversation.id %>
+        <%= f.input :content, label: false %>
+        <%= button_tag type: 'submit', class: "button-send" do %>
         <i class="fa fa-paper-plane" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-  </div>
+        <% end %>
+        <% end %>
+    </div>
 </div>
-
-
-
-
-
-

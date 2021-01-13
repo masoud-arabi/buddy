@@ -1,63 +1,62 @@
  <div class="container_ideas">
 
-  <div id="pie-chart-industry">
-    <h1>Job openings per industry</h1>
-    <% pie_data = Job.joins(:company).group(:industry).count %>
-    <%= pie_chart pie_data, { defer: true,
+     <div id="pie-chart-industry">
+         <h1>Job openings per industry</h1>
+         <% pie_data = Job.joins(:company).group(:industry).count %>
+         <%= pie_chart pie_data, { defer: true,
     width: "300px", height: "300px",
     colors: Job.build_color_pie_chart(pie_data) } %>
-    <p>Scroll down to discover more insights...</p>
-  </div>
+         <p>Scroll down to discover more insights...</p>
+     </div>
 
-  <div id="pie-chart-industry">
-    <h1>Job positions per industry</h1>
-    <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
-    <%= area_chart area_data, { defer: true,
+     <div id="pie-chart-industry">
+         <h1>Job positions per industry</h1>
+         <% area_data = Job.joins(:company).group(:industry).group_by_week(:created_at).count.to_a.reverse.to_h %>
+         <%= area_chart area_data, { defer: true,
     xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: Job.build_color_area_chart(area_data) } %>
-    <p></p>
-  </div>
+         <p></p>
+     </div>
 
-<% @colors_priorities = {} %>
-  <% current_user.priorities.each do |priority| %>
-    <% if priority.position == 1 %>
-      <% @colors_priorities["#{priority.job_search}"] = "#F6AE2D" %>
-    <% elsif priority.position == 2 %>
-      <% @colors_priorities["#{priority.job_search}"] = "#ED254E" %>
-    <% elsif priority.position == 3 %>
-      <% @colors_priorities["#{priority.job_search}"] = "#2F4858" %>
-    <% elsif priority.position == nil %>
-      <% @colors_priorities["#{priority.job_search}"] = "#B4DAD2" %>
-    <% end %>
-  <% end %>
+     <% @colors_priorities = {} %>
+     <% current_user.priorities.each do |priority| %>
+     <% if priority.position == 1 %>
+     <% @colors_priorities["#{priority.job_search}"] = "#F6AE2D" %>
+     <% elsif priority.position == 2 %>
+     <% @colors_priorities["#{priority.job_search}"] = "#ED254E" %>
+     <% elsif priority.position == 3 %>
+     <% @colors_priorities["#{priority.job_search}"] = "#2F4858" %>
+     <% elsif priority.position == nil %>
+     <% @colors_priorities["#{priority.job_search}"] = "#B4DAD2" %>
+     <% end %>
+     <% end %>
 
-  <div id="pie-chart-industry">
-    <h1>Job openings</h1>
-    <% pie_data_priorities = Job.group(:title).count %>
-    <%= pie_chart pie_data_priorities, { defer: true,
+     <div id="pie-chart-industry">
+         <h1>Job openings</h1>
+         <% pie_data_priorities = Job.group(:title).count %>
+         <%= pie_chart pie_data_priorities, { defer: true,
       width: "300px", height: "300px",
     colors: Job.build_color_priorities_pie_chart(pie_data_priorities, @colors_priorities) } %>
-    <p></p>
-  </div>
+         <p></p>
+     </div>
 
-  <div id="pie-chart-industry">
-    <h1>Priorities' job positions</h1>
-    <% area_data_priorities = Job.by_user_priorities(current_user, @colors_priorities) %>
-    <%= area_chart  area_data_priorities, { defer: true,
+     <div id="pie-chart-industry">
+         <h1>Priorities' job positions</h1>
+         <% area_data_priorities = Job.by_user_priorities(current_user, @colors_priorities) %>
+         <%= area_chart  area_data_priorities, { defer: true,
     xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: Job.build_color_priorities_area_chart(area_data_priorities, @colors_priorities) } %>
-    <p></p>
-  </div>
+         <p></p>
+     </div>
 
-  <div id="pie-chart-industry">
-    <h1>Total job positions</h1>
-    <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
+     <div id="pie-chart-industry">
+         <h1>Total job positions</h1>
+         <%= area_chart Job.group_by_week(:created_at).count, { defer: true,
     xtitle: "Time", ytitle: "Jobs", points: false,
     width: "300px", height: "300px",
     colors: ["#55B49E"] } %>
-    <p></p>
-  </div>
-</div>
-
+         <p></p>
+     </div>
+ </div>
