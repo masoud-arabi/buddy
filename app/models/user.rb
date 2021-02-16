@@ -19,15 +19,15 @@ class User < ApplicationRecord
   def match_priority_to_job(job)
     self.priorities.each do |priority|
       condition_job_search = job.title.downcase.include?(priority.job_search.downcase) && priority.job_search.downcase != ""
-      if priority.industry != ""
-        condition_industry_search = (job.company.industry.downcase == priority.industry.downcase)
-      else
+      if priority.industry = ""
         condition_industry_search = true
-      end
-      if priority.location != ""
-        condition_location_search = (job.company.address.downcase.include?(priority.location.downcase))
       else
+        condition_industry_search = (job.company.industry.downcase == priority.industry.downcase)
+      end
+      if priority.location = ""
         condition_location_search = true
+      else
+        condition_location_search = (job.company.address.downcase.include?(priority.location.downcase))
       end
       if condition_job_search && condition_industry_search && condition_location_search
         return priority.position

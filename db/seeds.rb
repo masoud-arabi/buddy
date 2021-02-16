@@ -26,11 +26,17 @@ Conversation.destroy_all
 
 puts "creating users"
 
+# user_1 = User.new(
+#   email: "alexp.coeff@gmail.com",
+#   password: "123456",
+#   first_name: "Alexandre",
+#   last_name: "Coëffet"
+# )
 user_1 = User.new(
-  email: "alexp.coeff@gmail.com",
+  email: "visitor@gmail.com",
   password: "123456",
-  first_name: "Alexandre",
-  last_name: "Coëffet"
+  first_name: "visitor's firstname",
+  last_name: "visitor's lastname"
 )
 file = URI.open("https://res.cloudinary.com/maximelpy/image/upload/v1605906080/vranbp25rvxz0qkrjyi5ar3u6ghs.jpg")
 user_1.photo.attach(io: file, filename: 'vranbp25rvxz0qkrjyi5ar3u6ghs.jpg', content_type: 'image/jpg')

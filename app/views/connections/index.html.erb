@@ -21,9 +21,10 @@
     <div class="connections-wrapper">
         <div class="card-connection">
             <% if contact.photo.attached? %>
-            <%= cl_image_tag contact&.photo.key, alt: "alttext", :class => "card-image" %>
+            <%= cl_image_tag contact.photo.key, alt: "alttext", :class => "card-image" %>
+
             <% else %>
-            <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
+            <img src="linked.png" alt="" class="card-image">
             <% end %>
             <div class="card-connection-details">
                 <h1><%= "#{contact.first_name} #{contact.last_name}" %></h1>
@@ -51,7 +52,11 @@
             </div>
 
             <div class="job-desc-container" style="display:none;">
+                <% if contact.photo.attached? %>
                 <%= cl_image_tag job_per_connection.company.photo.key, alt: "alttext", :class => "img-job" %>
+                <% else %>
+                <img src="https://res.cloudinary.com/maximelpy/image/upload/v1605906126/ny5oq93lqza9mpul45o6d43hdjcd.jpg" alt="" class="card-image">
+                <% end %>
                 <%= job_per_connection.description.html_safe %>
 
                 <div class="btn">
